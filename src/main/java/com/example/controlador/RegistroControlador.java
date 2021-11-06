@@ -23,34 +23,32 @@ import com.example.servicios.UsuarioServicios;
 public class RegistroControlador {
 	@Autowired
 	UsuarioServicios usu;
-	
-	
-	@GetMapping("/base")
-	public void base() {
-		usu.cargarUsuarios();
-	}
 
 	@GetMapping("/registro")
-	public String registro() {
+	public String Registro() {
 		
 		return "loginForm";
 	}
 	
 	@PostMapping("/login")
-	public String login(@ModelAttribute Usuarios usuario, Model model, HttpSession sesion, RedirectAttributes redirect) {
-		System.out.println("Email: " + usuario.getEmail() + " Clave: " + usuario.getClave());
+	public String Login(@ModelAttribute Usuarios usuario, Model model, HttpSession sesion, RedirectAttributes redirect) {
 		Usuarios u=usu.findByEmail(usuario.getEmail());
-		System.out.println("probando");
 		//String pagina="redirect:/usuarios/registro";
 		if(u!=null) {
 			if(u.getClave().equals(usuario.getClave())) {
-				System.out.println("probando");
 				sesion.setAttribute("usuario", u);
 				return "holaUsuario";
 			}else return "redirect:/usuarios/registro";
 			
 		}else return "redirect:/usuarios/registro";
 		
+		
+	}
+	
+	@PostMapping("/registrarse")
+	public String Resgistarse(@ModelAttribute Usuarios registro, Model model, HttpSession sesion, RedirectAttributes redirect) {
+		usu.save(registro);
+		return "redirect:/usuarios/registro";
 		
 	}
 	

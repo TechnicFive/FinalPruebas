@@ -49,7 +49,17 @@ public class Productos implements java.io.Serializable {
 		this.fechaAlta = fechaAlta;
 		this.fechaBaja = fechaBaja;
 	}
-
+	
+	public Productos( String nombre, String descripcion, Double precio, Integer stock,
+			 Float impuesto, String imagen) {
+		this.nombre = nombre;
+		this.descripcion = descripcion;
+		this.precio = precio;
+		this.stock = stock;
+		this.impuesto = impuesto;
+		this.imagen = imagen;
+	}
+	
 	public Productos(Integer idCategoria, String nombre, String descripcion, Double precio, Integer stock,
 			Date fechaAlta, Date fechaBaja, Float impuesto, String imagen) {
 		this.idCategoria = idCategoria;

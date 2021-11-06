@@ -79,6 +79,17 @@ body {
 	transition: 0.8s;
 }
 
+.input-group-regitro{
+	top: 150px;
+	position: absolute;
+	width: 280px;
+	transition: 0.8s;
+	overflow-y: scroll;
+	background: transparent;
+	height: 300px;
+
+}
+
 .input-file{
 	width: 100%;
 	padding: 10px 0;

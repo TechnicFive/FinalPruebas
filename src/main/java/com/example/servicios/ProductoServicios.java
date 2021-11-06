@@ -25,4 +25,7 @@ public class ProductoServicios {
 		return us;
 	}
 	
+	public void save(Productos producto) {
+		usu.save(producto);
+	}
 }

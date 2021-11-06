@@ -35,5 +35,9 @@ public class UsuarioServicios {
 		return us;
 	}
 	
+	public void save(Usuarios usuario) {
+		usu.save(usuario);
+	}
+	
 	
 }

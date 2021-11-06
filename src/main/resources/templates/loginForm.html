@@ -21,11 +21,19 @@
                         <input type="checkbox" class="checkbox" ><span>Recordar Contraseña</span>
                         <button type="submit" class="boton">Entrar</button>  
                 </form>
-                <form id="registrar" class="input-group" method="post">
-                        <input type="text" name="u" placeholder="usuario" class="input-file" required="required" />
-                        <input type="email" name="u" placeholder="email" class="input-file" required="required" />
-                        <input id="comprobacion1" type="password" name="p" placeholder="Contraseña" class="input-file" required="required" />
-                        <input id="comprobacion2" type="password" name="p" placeholder="Contraseña" class="input-file" required="required" />
+                <form id="registrar" class="input-group-regitro" th:action="@{/usuarios/registrarse}" th:objec="${registro}" method="post">
+                        <input type="text" name="nombre" placeholder="nombre" class="input-file" required="required" />
+                        <input type="text" name="apellido1" placeholder="apellido1" class="input-file" required="required" />
+                        <input type="text" name="apellido2" placeholder="apellido2" class="input-file" required="required" />
+                        <input type="text" name="direccion" placeholder="direccion" class="input-file" required="required" />
+                        <input type="text" name="dni" placeholder="dni" class="input-file" required="required" />
+                        <input type="hidden" name="idrol" value="3" />
+                        <input type="text" name="localidad" placeholder="localidad" class="input-file" required="required" />
+                        <input type="text" name="provincia" placeholder="provincia" class="input-file" required="required" />
+                        <input type="email" name="email" placeholder="email" class="input-file" required="required" />
+                        <input type="text" name="telefono" placeholder="telefono" class="input-file" required="required" />
+                        <input id="comprobacion1" type="password" name="clave" placeholder="Contraseña" class="input-file" required="required" />
+                        <input id="comprobacion2" type="password" name="calve" placeholder="Contraseña" class="input-file" required="required" />
                         <input type="checkbox" class="checkbox" required="required"><span>Acepto los terminos y condiciones de uso</span>
                         <button type="submit" class="boton">Registrarse</button>
                 </form>

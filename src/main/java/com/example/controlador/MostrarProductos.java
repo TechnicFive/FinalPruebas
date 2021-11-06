@@ -8,9 +8,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.example.modelos.Usuarios;
 import com.example.modelos.Productos;
 import com.example.servicios.ProductoServicios;
 
@@ -23,11 +25,24 @@ public class MostrarProductos {
 	
 	@GetMapping("")
 	public String Productos(Model model, HttpSession sesion) {
-		crearCarrito(sesion);
+		if(sesion.getAttribute("carrito")==null) {
+			crearCarrito(sesion);
+		}
 		model.addAttribute("Productos", usu.DarProducto());
 		return "index";
 	}
-
+	
+	@GetMapping("/nuevospro")
+	public String ruta() {
+		return "formProductos";
+	}
+	
+	
+	@PostMapping("/nuevoProducto")
+	public String nuevoProducto(@ModelAttribute Productos producto, Model model, HttpSession sesion, RedirectAttributes redirect) {
+		usu.save(producto);
+		return "redirect:/";
+	}
 	
 	public void crearCarrito(HttpSession sesion) {
 		ArrayList <Productos> lista= new ArrayList <Productos>();
@@ -36,4 +51,6 @@ public class MostrarProductos {
 		//Cuando compremos se pone null
 			
 	}
+	
+	
 }
