@@ -15,9 +15,9 @@
                     <button type="button" class="toggle-btn" onclick="login()">Iniciar sesión</button>
                     <button type="button" class="toggle-btn" onclick="registrar()">Registrar</button>
                 </div>
-                <form id="login" class="input-group" th:action="@{/usuario/login}" th:objec="${usuario}" method="post">
-                        <input type="text" id="nombre" name="nombre" placeholder="email" class="input-file" required="required" />
-                        <input type="password" id="contrasena" name="contrasena" placeholder="Contraseña" class="input-file" required="required" />
+                <form id="login" class="input-group" th:action="@{/usuarios/login}" th:objec="${usuario}" method="post">
+                        <input type="text" id="email" name="email" placeholder="email" class="input-file" required="required" />
+                        <input type="password" id="clave" name="clave" placeholder="Contraseña" class="input-file" required="required" />
                         <input type="checkbox" class="checkbox" ><span>Recordar Contraseña</span>
                         <button type="submit" class="boton">Entrar</button>  
                 </form>
