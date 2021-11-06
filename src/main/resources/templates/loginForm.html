@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<link th:href="@{/css/Newcss.css}" rel="stylesheet" type="text/css">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logearse</title>
+</head>
+<body>
+    <div class="container">
+            <div class="form-box">
+                <div class="button-box">
+                    <div id="elegir"></div>
+                    <button type="button" class="toggle-btn" onclick="login()">Iniciar sesión</button>
+                    <button type="button" class="toggle-btn" onclick="registrar()">Registrar</button>
+                </div>
+                <form id="login" class="input-group" th:action="@{/usuario/login}" th:objec="${usuario}" method="post">
+                        <input type="text" id="nombre" name="nombre" placeholder="email" class="input-file" required="required" />
+                        <input type="password" id="contrasena" name="contrasena" placeholder="Contraseña" class="input-file" required="required" />
+                        <input type="checkbox" class="checkbox" ><span>Recordar Contraseña</span>
+                        <button type="submit" class="boton">Entrar</button>  
+                </form>
+                <form id="registrar" class="input-group" method="post">
+                        <input type="text" name="u" placeholder="usuario" class="input-file" required="required" />
+                        <input type="email" name="u" placeholder="email" class="input-file" required="required" />
+                        <input id="comprobacion1" type="password" name="p" placeholder="Contraseña" class="input-file" required="required" />
+                        <input id="comprobacion2" type="password" name="p" placeholder="Contraseña" class="input-file" required="required" />
+                        <input type="checkbox" class="checkbox" required="required"><span>Acepto los terminos y condiciones de uso</span>
+                        <button type="submit" class="boton">Registrarse</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var x= document.getElementById("login");
+        var y= document.getElementById("registrar");
+        var z= document.getElementById("elegir");
+
+        function login(){
+            x.style.left= "50px";
+            y.style.left= "450px";
+            z.style.left= "0px";
+        }
+        function registrar(){
+            x.style.left= "-400px";
+            y.style.left= "50px";
+            z.style.left= "120px";
+        }
+    </script>
+    
+</body>
+</html>

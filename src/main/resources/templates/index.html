@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<table th:each="productos : ${Productos}">
+		<tr>
+			<td th:text="${productos.id}"></td>
+			<td th:text="${productos.nombre}"></td>
+			<td th:text="${productos.descripcion}"></td>
+			<td th:text="${productos.precio}"></td>
+			<td th:text="${productos.stock}"></td>
+			<td th:text="${productos.fechaAlta}"></td>
+			<td th:text="${productos.fechaBaja}"></td>
+			<td th:text="${productos.impuesto}"></td>
+			<td th:text="${productos.imagen}"></td>
+		</tr>
+	</table>
+	<a th:href="@{/usuarios/registro}"><button>Registrarse</button></a>
+	
+	</form>
+</body>
+</html>
