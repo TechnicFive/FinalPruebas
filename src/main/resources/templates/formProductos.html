@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<form id="registrar" class="input-group-regitro" th:action="@{/nuevoProducto}" th:objec="${producto}" method="post">
+       <input type="text" name="nombre" placeholder="nombre" class="input-file" required="required" />
+		<select name="idCategoria">
+			<option th:each="desplegar : ${categorias}" th:value="${desplegar.id}" th:text="${desplegar.nombre}"></option> 
+		</select>
+       <input type="text" name="descripcion" placeholder="descripcion" class="input-file" required="required" />
+       <input type="number" name="precio" placeholder="1.0" step="0.01" class="input-file" required="required" />
+       <input type="number" name="stock" placeholder="stock" class="input-file" required="required" />
+       <input type="number" name="impuesto" placeholder="1.0" step="0.01" min="0" max="21" class="input-file" required="required" />
+       <!--  <input type="text" name="imagen" placeholder="imagen" class="input-file" required="required" />-->
+       <button type="submit" class="boton">Registrarse</button>
+    </form>
+</body>
+</html>

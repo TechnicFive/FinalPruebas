@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.example.modelos.Productos;
 import com.example.modelos.Usuarios;
 import com.example.servicios.UsuarioServicios;
 
@@ -27,7 +28,7 @@ public class RegistroControlador {
 	@GetMapping("/registro")
 	public String Registro() {
 		
-		return "loginForm";
+		return "login/loginForm";
 	}
 	
 	@PostMapping("/login")
@@ -37,19 +38,44 @@ public class RegistroControlador {
 		if(u!=null) {
 			if(u.getClave().equals(usuario.getClave())) {
 				sesion.setAttribute("usuario", u);
-				return "holaUsuario";
-			}else return "redirect:/usuarios/registro";
+				return "redirect:/";
+			}else {
+				model.addAttribute("mensaje", "El usuario o la contraseña no son correctos");
+				return "login/loginForm";
+			}
 			
-		}else return "redirect:/usuarios/registro";
+		}else {
+			model.addAttribute("mensaje", "El usuario o la contraseña no son correctos");
+			return "login/loginForm";
+		}
 		
 		
 	}
 	
 	@PostMapping("/registrarse")
 	public String Resgistarse(@ModelAttribute Usuarios registro, Model model, HttpSession sesion, RedirectAttributes redirect) {
-		usu.save(registro);
+		Usuarios u= usu.findByEmail(registro.getEmail());
+		
+		if(u==null) {
+			registro.setIdRol(3);
+			usu.save(registro);
+		}
+		
 		return "redirect:/usuarios/registro";
 		
+	}
+	
+	@GetMapping("/logout")
+	public String CerrarSesion(Model model, HttpSession sesion) {
+		sesion.invalidate();
+		//cerrarCarrito(sesion);
+		return "redirect:/";
+	}
+	
+	public void cerrarCarrito(HttpSession sesion) {
+		sesion.setAttribute("carrito", null);
+		//Cuando compremos se pone null
+			
 	}
 	
 	

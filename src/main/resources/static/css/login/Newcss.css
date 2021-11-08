@@ -87,6 +87,7 @@ body {
 	overflow-y: scroll;
 	background: transparent;
 	height: 300px;
+	margin-left:5%;
 
 }
 
@@ -133,4 +134,10 @@ span{
 /*lo tenías en mayúsculas*/
 #registrar{
 	left: 450px;
+}
+
+.pruebas{
+	margin-top: 37%;
+	margin-left:17%;
+	color: white;
 }

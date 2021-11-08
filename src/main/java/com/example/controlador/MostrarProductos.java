@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.example.modelos.DetallesPedido;
 import com.example.modelos.Productos;
 import com.example.servicios.CategoriaServicios;
 import com.example.servicios.ProductoServicios;
@@ -51,7 +52,7 @@ public class MostrarProductos {
 	}
 	
 	public void crearCarrito(HttpSession sesion) {
-		ArrayList <Productos> lista= new ArrayList <Productos>();
+		ArrayList <DetallesPedido> lista= new ArrayList <DetallesPedido>();
 		
 		sesion.setAttribute("carrito", lista);
 		//Cuando compremos se pone null
