@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.example.modelos.Productos;
+import com.example.servicios.CategoriaServicios;
 import com.example.servicios.ProductoServicios;
 
 
@@ -22,6 +23,8 @@ import com.example.servicios.ProductoServicios;
 public class MostrarProductos {
 	@Autowired
 	ProductoServicios usu;
+	@Autowired
+	CategoriaServicios usa;
 	
 	@GetMapping("")
 	public String Productos(Model model, HttpSession sesion) {
@@ -33,7 +36,10 @@ public class MostrarProductos {
 	}
 	
 	@GetMapping("/nuevospro")
-	public String ruta() {
+	public String ruta(Model model, HttpSession sesion) {
+		
+		//TODO aqui va el model.addAtribute de Categorias
+		model.addAttribute("categorias", usa.darCategorias());
 		return "formProductos";
 	}
 	
