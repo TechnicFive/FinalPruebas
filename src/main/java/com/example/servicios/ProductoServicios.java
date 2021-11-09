@@ -28,4 +28,9 @@ public class ProductoServicios {
 	public void save(Productos producto) {
 		usu.save(producto);
 	}
+	
+	public void eliminar(Productos producto) {
+		usu.delete(producto);
+	}
+	
 }
