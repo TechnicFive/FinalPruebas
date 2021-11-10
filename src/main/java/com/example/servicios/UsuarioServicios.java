@@ -1,8 +1,11 @@
 package com.example.servicios;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.example.modelos.Productos;
 import com.example.modelos.Usuarios;
 import com.example.repositories.UsuariosRepositorio;
 
@@ -17,7 +20,7 @@ public class UsuarioServicios {
 		usu.save(u);
 	}
 	
-	public Iterable DarUsuarios() {
+	public List<Usuarios> DarUsuarios() {
 		return usu.findAll();
 	}
 	
@@ -39,5 +42,8 @@ public class UsuarioServicios {
 		usu.save(usuario);
 	}
 	
+	public void eliminar(Usuarios usuario) {
+		usu.delete(usuario);
+	}
 	
 }

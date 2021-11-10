@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<link th:href="@{/css/Newcss.css}" rel="stylesheet" type="text/css">
+<link th:href="@{/css/login/Newcss.css}" rel="stylesheet" type="text/css">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -21,6 +21,7 @@
                         <input type="checkbox" class="checkbox" ><span>Recordar Contraseña</span>
                         <button type="submit" class="boton">Entrar</button>  
                 </form>
+                <p th:text="${mensaje}" class="pruebas"></p>
                 <form id="registrar" class="input-group-regitro" th:action="@{/usuarios/registrarse}" th:objec="${registro}" method="post">
                         <input type="text" name="nombre" placeholder="nombre" class="input-file" required="required" />
                         <input type="text" name="apellido1" placeholder="apellido1" class="input-file" required="required" />

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	       <header class="header mb-5" th:fragment="cabecera">
+      <!--
+        Header
+      -->
+      <div id="top">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-6 text-center text-lg-right" th:if="${session.usuario}">
+              <ul class="menu list-inline mb-0">
+                <li class="list-inline-item"><a th:href="@{/usuarios/perfil}" th:text="'Perfil: '+${session.usuario.email}">Login</a></li>
+                <li class="list-inline-item"><a th:href="@{/usuarios/logout}">Cerrar Sesión</a></li>
+              </ul>
+            </div>
+            <div class="col-lg-6 text-center text-lg-right" th:unless="${session.usuario}">
+              <ul class="menu list-inline mb-0">
+                <li class="list-inline-item"><a th:href="@{/usuarios/registro}">Login</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <!-- *** TOP BAR END ***-->
+      </div>
+      <nav class="navbar navbar-expand-lg">
+        <div class="container"><a th:href="@{/volver}" class="navbar-brand home"><img src="/img/logo.png" alt="Obaju logo" class="d-none d-md-inline-block"><img src="img/logo.png" alt="Obaju logo" class="d-inline-block d-md-none"><span class="sr-only">Obaju - go to homepage</span></a>
+          <div class="navbar-buttons">
+            <button type="button" data-toggle="collapse" data-target="#navigation" class="btn btn-outline-secondary navbar-toggler"><span class="sr-only">Toggle navigation</span><i class="fa">Menú</i></button>
+            
+            <!--<button type="button" data-toggle="collapse" data-target="#search" class="btn btn-outline-secondary navbar-toggler"><span class="sr-only">Toggle search</span><i class="fa">Buscar</i></button>A partir de aqui para el--><a href="/carrito/mostrar" class="btn btn-outline-secondary navbar-toggler">Carrito</i></a>
+          </div>
+          <div id="navigation" class="collapse navbar-collapse">
+            <ul class="navbar-nav mr-auto">
+            <li class="nav-item dropdown menu-large"><a data-toggle="dropdown" data-hover="dropdown" data-delay="200" class="dropdown-toggle nav-link">Categorias</a><b class="caret"></b>
+              	<ul class="dropdown-menu megamenu">
+                  <li>
+                    <div class="row" th:each="categoria : ${session.Categorias}">
+                        <ul class="list-unstyled mb-3">
+                          <li class="nav-item"><a th:href="@{/categorias/}+${categoria.id}" class="nav-link" th:text="${categoria.nombre}"></a></li><!-- Nombre de la categoria -->
+                        </ul>
+                    </div>
+                  </li>
+                </ul>
+              </li>
+              <p th:if="${session.usuario}">
+              <li th:if="${session.usuario.idRol} le '2'"  class="nav-item dropdown menu-large"><a data-toggle="dropdown" data-hover="dropdown" data-delay="200" class="dropdown-toggle nav-link">Gestión</a><b class="caret"></b>
+              	<ul class="dropdown-menu megamenu">
+                  <li>
+                    <div class="row">
+                        <ul class="list-unstyled mb-3">
+                          <li class="nav-item"><a th:href="@{/usuarios/muestralistado}" class="nav-link">Empleados</a></li>
+                          <li class="nav-item"><a th:href="@{/muestralistado}" class="nav-link">Productos</a></li>
+                          <li class="nav-item"><a th:href="@{pedidos/muestrapedidos}" class="nav-link">Pedidos</a></li>
+                        </ul>
+                    </div>
+                  </li>
+                </ul>
+              </li>
+              </p>    
+            </ul>
+            <div class="navbar-buttons d-flex justify-content-end">
+              <!--<div id="search-not-mobile" class="navbar-collapse collapse"></div><a data-toggle="collapse" href="#search" class="btn navbar-btn btn-primary d-none d-lg-inline-block"><span class="sr-only">Toggle search</span><i class="fa">Buscar</i></a>-->
+              <div id="basket-overview" class="navbar-collapse collapse d-none d-lg-block"><a href="/carrito/mostrar" class="btn btn-primary navbar-btn"><span>Carrito</span></a></div>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <div id="search" class="collapse">
+        <div class="container">
+          <form role="search" class="ml-auto">
+            <div class="input-group">
+              <input type="text" placeholder="Search" class="form-control">
+              <div class="input-group-append">
+                <button type="button" class="btn btn-primary"><i class="fa fa-search"></i></button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </header>
+</body>
+</html>
