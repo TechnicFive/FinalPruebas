@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Obaju : e-commerce template</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="all,follow">
+    <!-- Bootstrap CSS-->
+    <link rel="stylesheet" href="css/index/bootstrap/css/bootstrap.min.css">
+    <!-- Font Awesome CSS-->
+    <link rel="stylesheet" href="css/index/bootstrap/css/font-awesome.min.css">
+    <!-- Google fonts - Roboto -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,700">
+    <!-- owl carousel-->
+    <link rel="stylesheet" href="css/index/bootstrap/css/owl.carousel.css">
+    <link rel="stylesheet" href="css/index/bootstrap/css/owl.theme.default.css">
+    <!-- theme stylesheet-->
+    <link rel="stylesheet" href="css/index/style.default.css" id="theme-stylesheet">
+    <!-- Custom stylesheet - for your changes-->
+    <link rel="stylesheet" href="css/index/custom.css">
+    <!-- Favicon-->
+    <link rel="shortcut icon" href="favicon.png">
+    <!-- Tweaks for older IEs--><!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+  </head>
+<body>
+	<header th:replace="/cabezaypie/cabecera::cabecera"></header>
+	<form id="registrar" class="input-group-regitro" th:action="@{/nuevoProducto}" th:objec="${producto}" method="post">
+       <input type="text" name="nombre" placeholder="nombre" class="input-file" required="required" />
+		<select name="idCategoria">
+			<option th:each="desplegar : ${categorias}" th:value="${desplegar.id}" th:text="${desplegar.nombre}"></option> 
+		</select>
+       <input type="text" name="descripcion" placeholder="descripcion" class="input-file" required="required" />
+       <input type="number" name="precio" placeholder="1.0 precio" step="0.01" class="input-file" required="required" />
+       <input type="number" name="stock" placeholder="1 stock" class="input-file" required="required" />
+       <input type="number" name="impuesto" placeholder="1.0 impuesto" step="0.01" min="0.01" max="21" class="input-file" required="required" />
+       <select name="idProveedor">
+			<option th:each="proveedor : ${proveedores}" th:value="${proveedor.id}" th:text="${proveedor.nombre}"></option> 
+		</select>
+       <button type="submit" class="boton">Registrarse</button>
+    </form>
+    <footer th:replace="/cabezaypie/pie::pie"></footer>
+        <!-- *** COPYRIGHT END ***-->
+    <!-- JavaScript files-->
+    <script src="js/index/jquery.min.js"></script>
+    <script src="js/index/bootstrap.bundle.min.js"></script>
+    <script src="js/index/jquery.cookie.js"> </script>
+    <script src="js/index/owl.carousel.min.js"></script>
+    <script src="js/index/owl.carousel2.thumbs.js"></script>
+    <script src="js/index/front.js"></script>
+</body>
+</html>

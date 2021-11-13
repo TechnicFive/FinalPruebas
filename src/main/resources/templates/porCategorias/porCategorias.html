@@ -8,20 +8,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="all,follow">
     <!-- Bootstrap CSS-->
-    <link rel="stylesheet" href="css/index/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/index/bootstrap/css/bootstrap.min.css">
     <!-- Font Awesome CSS-->
-    <link rel="stylesheet" href="css/index/bootstrap/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/index/bootstrap/css/font-awesome.min.css">
     <!-- Google fonts - Roboto -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,700">
+    <link rel="stylesheet" href="/https://fonts.googleapis.com/css?family=Roboto:100,300,400,700">
     <!-- owl carousel-->
-    <link rel="stylesheet" href="css/index/bootstrap/css/owl.carousel.css">
-    <link rel="stylesheet" href="css/index/bootstrap/css/owl.theme.default.css">
+    <link rel="stylesheet" href="/css/index/bootstrap/css/owl.carousel.css">
+    <link rel="stylesheet" href="/css/index/bootstrap/css/owl.theme.default.css">
     <!-- theme stylesheet-->
-    <link rel="stylesheet" href="css/index/style.default.css" id="theme-stylesheet">
+    <link rel="stylesheet" href="/css/index/style.default.css" id="theme-stylesheet">
     <!-- Custom stylesheet - for your changes-->
-    <link rel="stylesheet" href="css/index/custom.css">
+    <link rel="stylesheet" href="/css/index/custom.css">
     <!-- Favicon-->
-    <link rel="shortcut icon" href="favicon.png">
+    <link rel="shortcut icon" href="/favicon.png">
     <!-- Tweaks for older IEs--><!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
@@ -35,9 +35,7 @@
             <div class="container">
               <div class="row">
                 <div class="col-md-12">
-                  <h2 class="mb-0">Productos</h2>
-                  <a class="btn btn-outline-secondary" style="width:208px; float: right;" href="/alto">Ordenar por precio mas alto</a>
-                  <a class="btn btn-outline-secondary" style="width:208px; float: right;" href="/bajo">Ordenar por precio más bajo</a>
+                  <h2 class="mb-0" th:text="${categoria}"></h2>
                 </div>
               </div>
             </div>
@@ -52,8 +50,7 @@
 		                  		<div class="text">
 		                    	<h3 th:text="${productos.nombre}"><a href="detail.html"></a></h3>
 		                    	<p class="price" th:text="${productos.precio}"> </p>
-		                    	<a th:if="${productos.stock} ge '1'" th:href="@{/carrito/add/}+${productos.id}"><button type="button">Comprar</button></a>
-		                    	<p th:if="${productos.stock} le '0'" style="color:red">El porducto esta fuera de stock</p>
+		                    	<a th:href="@{/carrito/add/}+${productos.id}"><button type="button">Comprar</button></a>
 		                    </div>
 		                  </div>
 		                </div>
