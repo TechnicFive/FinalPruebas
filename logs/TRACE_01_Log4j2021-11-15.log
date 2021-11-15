@@ -341,3 +341,76 @@
 [2021-11-15 14:50:30] [ INFO ] [UsuarioServicios:29] El usuario con la id existe
 [2021-11-15 14:50:32] [ INFO ] [UsuarioServicios:29] El usuario con la id existe
 [2021-11-15 14:50:38] [ INFO ] [UsuarioServicios:41] El usuario con el email existe
+[2021-11-15 19:52:10] [ INFO ] [UsuarioServicios:41] El usuario con el email existe
+[2021-11-15 19:53:01] [ INFO ] [UsuarioServicios:41] El usuario con el email existe
+[2021-11-15 19:53:01] [ INFO ] [UsuarioServicios:41] El usuario con el email existe
+[2021-11-15 20:01:24] [ INFO ] [ProductoServicios:41] Se ha guardado el usuario
+[2021-11-15 20:01:24] [ INFO ] [UsuarioServicios:41] El usuario con el email existe
+[2021-11-15 20:04:16] [ INFO ] [ProductoServicios:41] Se ha guardado el usuario
+[2021-11-15 20:04:16] [ INFO ] [UsuarioServicios:41] El usuario con el email existe
+[2021-11-15 20:06:17] [ INFO ] [ProductoServicios:41] Se ha guardado el usuario
+[2021-11-15 20:06:17] [ INFO ] [UsuarioServicios:41] El usuario con el email existe
+[2021-11-15 20:09:34] [ INFO ] [ProductoServicios:41] Se ha guardado el usuario
+[2021-11-15 20:09:34] [ INFO ] [UsuarioServicios:41] El usuario con el email existe
+[2021-11-15 20:11:27] [ INFO ] [ProductoServicios:41] Se ha guardado el usuario
+[2021-11-15 20:11:27] [ INFO ] [UsuarioServicios:41] El usuario con el email existe
+[2021-11-15 20:14:46] [ INFO ] [ProductoServicios:41] Se ha guardado el usuario
+[2021-11-15 20:14:46] [ INFO ] [UsuarioServicios:41] El usuario con el email existe
+[2021-11-15 20:17:36] [ INFO ] [ProductoServicios:41] Se ha guardado el usuario
+[2021-11-15 20:17:36] [ INFO ] [UsuarioServicios:41] El usuario con el email existe
+[2021-11-15 20:20:47] [ INFO ] [ProductoServicios:41] Se ha guardado el usuario
+[2021-11-15 20:20:47] [ INFO ] [UsuarioServicios:41] El usuario con el email existe
+[2021-11-15 20:24:37] [ INFO ] [UsuarioServicios:41] El usuario con el email existe
+[2021-11-15 20:24:48] [ INFO ] [UsuarioServicios:41] El usuario con el email existe
+[2021-11-15 20:24:48] [ INFO ] [UsuarioServicios:41] El usuario con el email existe
+[2021-11-15 20:29:21] [ INFO ] [ProductoServicios:41] Se ha guardado el usuario
+[2021-11-15 20:29:22] [ INFO ] [UsuarioServicios:41] El usuario con el email existe
+[2021-11-15 20:37:32] [ INFO ] [UsuarioServicios:41] El usuario con el email existe
+[2021-11-15 20:38:14] [ INFO ] [UsuarioServicios:41] El usuario con el email existe
+[2021-11-15 20:39:28] [ INFO ] [ProductoServicios:31] El Producto con la id existe
+[2021-11-15 20:39:43] [ INFO ] [ProductoServicios:31] El Producto con la id existe
+[2021-11-15 20:39:54] [ INFO ] [ProductoServicios:31] El Producto con la id existe
+[2021-11-15 20:39:54] [ INFO ] [UsuarioServicios:41] El usuario con el email existe
+[2021-11-15 20:39:58] [ INFO ] [ProductoServicios:31] El Producto con la id existe
+[2021-11-15 20:39:58] [ INFO ] [UsuarioServicios:41] El usuario con el email existe
+[2021-11-15 20:40:08] [ INFO ] [ProductoServicios:31] El Producto con la id existe
+[2021-11-15 20:40:08] [ INFO ] [UsuarioServicios:41] El usuario con el email existe
+[2021-11-15 20:40:15] [ INFO ] [ProductoServicios:31] El Producto con la id existe
+[2021-11-15 20:40:15] [ INFO ] [UsuarioServicios:41] El usuario con el email existe
+[2021-11-15 20:40:37] [ INFO ] [ProductoServicios:31] El Producto con la id existe
+[2021-11-15 20:40:37] [ INFO ] [UsuarioServicios:41] El usuario con el email existe
+[2021-11-15 20:41:04] [ INFO ] [UsuarioServicios:41] El usuario con el email existe
+[2021-11-15 20:41:06] [ INFO ] [ProductoServicios:31] El Producto con la id existe
+[2021-11-15 20:41:06] [ INFO ] [UsuarioServicios:41] El usuario con el email existe
+[2021-11-15 20:43:36] [ INFO ] [UsuarioServicios:44] El usuario con email no exite
+[2021-11-15 20:43:36] [ INFO ] [UsuarioServicios:51] Se ha guardado el usuario
+[2021-11-15 20:43:52] [ INFO ] [UsuarioServicios:41] El usuario con el email existe
+[2021-11-15 20:43:52] [ INFO ] [UsuarioServicios:41] El usuario con el email existe
+[2021-11-15 20:44:04] [ INFO ] [ProductoServicios:31] El Producto con la id existe
+[2021-11-15 20:44:04] [ INFO ] [ProductoServicios:41] Se ha guardado el usuario
+[2021-11-15 20:44:04] [ INFO ] [ProductoServicios:31] El Producto con la id existe
+[2021-11-15 20:44:04] [ INFO ] [ProductoServicios:41] Se ha guardado el usuario
+[2021-11-15 20:44:04] [ INFO ] [ProductoServicios:31] El Producto con la id existe
+[2021-11-15 20:44:04] [ INFO ] [ProductoServicios:41] Se ha guardado el usuario
+[2021-11-15 20:44:04] [ INFO ] [ProductoServicios:31] El Producto con la id existe
+[2021-11-15 20:44:04] [ INFO ] [ProductoServicios:41] Se ha guardado el usuario
+[2021-11-15 20:44:04] [ INFO ] [ProductoServicios:31] El Producto con la id existe
+[2021-11-15 20:44:04] [ INFO ] [ProductoServicios:41] Se ha guardado el usuario
+[2021-11-15 20:44:04] [ INFO ] [ProductoServicios:31] El Producto con la id existe
+[2021-11-15 20:44:04] [ INFO ] [ProductoServicios:41] Se ha guardado el usuario
+[2021-11-15 20:44:04] [ INFO ] [UsuarioServicios:41] El usuario con el email existe
+[2021-11-15 20:44:48] [ INFO ] [UsuarioServicios:41] El usuario con el email existe
+[2021-11-15 20:44:52] [ INFO ] [ProductoServicios:52] El Array list esta ordenador por precio y existe
+[2021-11-15 20:44:55] [ INFO ] [ProductoServicios:64] El Array list esta ordenador por precio y existe
+[2021-11-15 20:45:22] [ INFO ] [UsuarioServicios:41] El usuario con el email existe
+[2021-11-15 20:45:34] [ INFO ] [UsuarioServicios:41] El usuario con el email existe
+[2021-11-15 20:45:34] [ INFO ] [UsuarioServicios:41] El usuario con el email existe
+[2021-11-15 20:45:43] [ INFO ] [ProductoServicios:31] El Producto con la id existe
+[2021-11-15 20:45:47] [ INFO ] [ProductoServicios:41] Se ha guardado el usuario
+[2021-11-15 20:45:51] [ INFO ] [ProductoServicios:31] El Producto con la id existe
+[2021-11-15 20:45:54] [ INFO ] [ProductoServicios:41] Se ha guardado el usuario
+[2021-11-15 20:45:55] [ INFO ] [UsuarioServicios:41] El usuario con el email existe
+[2021-11-15 20:46:07] [ INFO ] [UsuarioServicios:29] El usuario con la id existe
+[2021-11-15 20:46:15] [ INFO ] [UsuarioServicios:41] El usuario con el email existe
+[2021-11-15 20:46:38] [ INFO ] [UsuarioServicios:29] El usuario con la id existe
+[2021-11-15 20:46:38] [ INFO ] [UsuarioServicios:56] Se ha eliminado el usuario
