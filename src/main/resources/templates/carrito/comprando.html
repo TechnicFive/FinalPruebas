@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Obaju : e-commerce template</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="all,follow">
+    <!-- Bootstrap CSS-->
+    <link rel="stylesheet" href="/css/index/bootstrap/css/bootstrap.min.css">
+    <!-- Font Awesome CSS-->
+    <link rel="stylesheet" href="/css/index/bootstrap/css/font-awesome.min.css">
+    <!-- Google fonts - Roboto -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,700">
+    <!-- owl carousel-->
+    <link rel="stylesheet" href="/css/index/bootstrap/css/owl.carousel.css">
+    <link rel="stylesheet" href="/css/index/bootstrap/css/owl.theme.default.css">
+    <!-- theme stylesheet-->
+    <link rel="stylesheet" href="/css/index/style.default.css" id="theme-stylesheet">
+    <!-- Custom stylesheet - for your changes-->
+    <link rel="stylesheet" href="/css/index/custom.css">
+    <!-- Favicon-->
+    <link rel="shortcut icon" href="favicon.png">
+    <!-- Tweaks for older IEs--><!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+  </head>
+<body>
+	<header th:replace="/cabezaypie/cabecera::cabecera"></header>
+	
+	<form style="text-align:center">
+        Nombre: <input type="text" name="nombre"  th:value=${session.usuario.nombre} disabled/>
+        Apellido: <input type="text" name="apellido1" th:value=${session.usuario.apellido1} disabled/>
+        <br>
+        Segundo Apellido: <input type="text" name="apellido2" th:value=${session.usuario.apellido2} disabled/>
+        Dirección: <input type="text" name="direccion" th:value=${session.usuario.direccion} disabled/>
+        <br>
+        <a th:href="@{/usuarios/editarUno/}+${session.usuario.id}" class="btn btn-outline-secondary">Editar</a>         
+	</form>
+	<form th:action="@{/carrito/comprado}" th:object="${pedido}" method="post" style="text-align:center">
+		Estado: <input type="text" name="estado" th:value="${session.pedidos.estado}" disabled/>
+		<br>
+		Metodo de pago:<p th:each="metodo : ${metodoPago}">
+    		<input type="radio" name="metodoPago" th:value="${metodo.nombre}" th:text="${metodo.nombre}" required="required">
+  		</p>
+  		<button type="submit" class="btn btn-outline-secondary">Comprar</button>
+	</form>
+	
+	
+		
+  
+	
+	<footer th:replace="/cabezaypie/pie::pie"></footer>
+        <!-- *** COPYRIGHT END ***-->
+    <!-- JavaScript files-->
+    <script src="/js/index/jquery.min.js"></script>
+    <script src="/js/index/bootstrap.bundle.min.js"></script>
+    <script src="/js/index/jquery.cookie.js"> </script>
+    <script src="/js/index/owl.carousel.min.js"></script>
+    <script src="/js/index/owl.carousel2.thumbs.js"></script>
+    <script src="/js/index/front.js"></script>
+</body>
+</html>

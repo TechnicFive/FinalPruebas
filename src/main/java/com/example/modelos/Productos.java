@@ -17,7 +17,7 @@ import javax.persistence.Table;
 */
 @Entity
 @Table(name="productos")
-public class Productos implements java.io.Serializable {
+public class Productos {
 
 	@Id 
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -41,6 +41,8 @@ public class Productos implements java.io.Serializable {
 	private Float impuesto;
 	@Column(name="imagen")
 	private String imagen;
+	@Column(name="id_proveedor")
+	private Integer idProveedor;
 
 	public Productos() {
 	}
@@ -51,13 +53,13 @@ public class Productos implements java.io.Serializable {
 	}
 	
 	public Productos( String nombre, String descripcion, Double precio, Integer stock,
-			 Float impuesto, String imagen) {
+			 Float impuesto, Integer idProveedor) {
 		this.nombre = nombre;
 		this.descripcion = descripcion;
 		this.precio = precio;
 		this.stock = stock;
 		this.impuesto = impuesto;
-		this.imagen = imagen;
+		this.idProveedor = idProveedor;
 	}
 	
 	public Productos(Integer idCategoria, String nombre, String descripcion, Double precio, Integer stock,
@@ -153,5 +155,14 @@ public class Productos implements java.io.Serializable {
 		this.imagen = imagen;
 	}
 
+	public Integer getIdProveedor() {
+		return idProveedor;
+	}
+
+	public void setIdProveedor(Integer idProveedor) {
+		this.idProveedor = idProveedor;
+	}
+
+	
 }
 

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<link th:href="@{/css/Newcss.css}" rel="stylesheet" type="text/css">
+<link th:href="@{/css/login/Newcss.css}" rel="stylesheet" type="text/css">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -15,13 +15,14 @@
                     <button type="button" class="toggle-btn" onclick="login()">Iniciar sesión</button>
                     <button type="button" class="toggle-btn" onclick="registrar()">Registrar</button>
                 </div>
-                <form id="login" class="input-group" th:action="@{/usuarios/login}" th:objec="${usuario}" method="post">
+                <form id="login" class="input-group" th:action="@{/usuarios/login}" th:object="${usuario}" method="post">
                         <input type="text" id="email" name="email" placeholder="email" class="input-file" required="required" />
                         <input type="password" id="clave" name="clave" placeholder="Contraseña" class="input-file" required="required" />
                         <input type="checkbox" class="checkbox" ><span>Recordar Contraseña</span>
                         <button type="submit" class="boton">Entrar</button>  
                 </form>
-                <form id="registrar" class="input-group-regitro" th:action="@{/usuarios/registrarse}" th:objec="${registro}" method="post">
+                <p th:text="${mensaje}" class="pruebas"></p>
+                <form id="registrar" class="input-group-regitro" th:action="@{/usuarios/registrarse}" th:object="${registro}" method="post">
                         <input type="text" name="nombre" placeholder="nombre" class="input-file" required="required" />
                         <input type="text" name="apellido1" placeholder="apellido1" class="input-file" required="required" />
                         <input type="text" name="apellido2" placeholder="apellido2" class="input-file" required="required" />
@@ -32,8 +33,7 @@
                         <input type="text" name="provincia" placeholder="provincia" class="input-file" required="required" />
                         <input type="email" name="email" placeholder="email" class="input-file" required="required" />
                         <input type="text" name="telefono" placeholder="telefono" class="input-file" required="required" />
-                        <input id="comprobacion1" type="password" name="clave" placeholder="Contraseña" class="input-file" required="required" />
-                        <input id="comprobacion2" type="password" name="calve" placeholder="Contraseña" class="input-file" required="required" />
+                        <input type="password" name="clave" pattern=".{8,}" placeholder="Contraseña 8 digitos minimo" class="input-file" required="required" />
                         <input type="checkbox" class="checkbox" required="required"><span>Acepto los terminos y condiciones de uso</span>
                         <button type="submit" class="boton">Registrarse</button>
                 </form>

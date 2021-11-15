@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Obaju : e-commerce template</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="all,follow">
+    <!-- Bootstrap CSS-->
+    <link rel="stylesheet" href="/css/index/bootstrap/css/bootstrap.min.css">
+    <!-- Font Awesome CSS-->
+    <link rel="stylesheet" href="/css/index/bootstrap/css/font-awesome.min.css">
+    <!-- Google fonts - Roboto -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,700">
+    <!-- owl carousel-->
+    <link rel="stylesheet" href="/css/index/bootstrap/css/owl.carousel.css">
+    <link rel="stylesheet" href="/css/index/bootstrap/css/owl.theme.default.css">
+    <!-- theme stylesheet-->
+    <link rel="stylesheet" href="/css/index/style.default.css" id="theme-stylesheet">
+    <!-- Custom stylesheet - for your changes-->
+    <link rel="stylesheet" href="/css/index/custom.css">
+    <!-- Favicon-->
+    <link rel="shortcut icon" href="favicon.png">
+    <!-- Tweaks for older IEs--><!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+  </head>
+<body>
+	<header th:replace="/cabezaypie/cabecera::cabecera"></header>
+	<div>
+	<form id="registrar" class="input-group-regitro" th:action="@{/usuarios/registrarAdmin}" th:object="${registro}" method="post" style="text-align:center" onsubmit="return validadContrasena()">
+      <input type="text" name="nombre" placeholder="nombre" class="input-file" required="required" />
+      <input type="text" name="apellido1" placeholder="apellido1" class="input-file" required="required" />
+      <br>
+      <input type="text" name="apellido2" placeholder="apellido2" class="input-file" required="required" />
+      <input type="text" name="direccion" placeholder="direccion" class="input-file" required="required" />
+      <br>
+      <input type="text" name="dni" placeholder="dni" class="input-file" required="required" />
+      <select name="idRol">
+			<option type="number" th:if="${session.usuario.email} eq 'admin@admin'" value="1">Admin</option>
+			<option type="number" value="2">Empleado</option>
+			<option type="number" value="3">Cliente</option>
+	  </select>
+	  <br>
+      <input type="text" name="localidad" placeholder="localidad" class="input-file" required="required" />
+      <input type="text" name="provincia" placeholder="provincia" class="input-file" required="required" />
+      <br>
+      <input type="email" name="email" placeholder="email" class="input-file" required="required" />
+      <input type="text" name="telefono" placeholder="telefono" class="input-file" required="required" />
+      <br>
+      <input id="comprobacion1" type="password" name="clave" placeholder="Contraseña 8 digitos minimo" pattern=".{8,}" required="required" />
+      <input id="comprobacion2" type="password" name="calve" placeholder="Contraseña 8 digitos minimo" pattern=".{8,}"  />
+      <span id="validacion"></span>
+      <br>
+      <input type="checkbox" class="checkbox" required="required"><span>Acepto los terminos y condiciones de uso</span>
+      <button type="submit" class="boton">Registrarse</button>
+    </form>
+    
+	<footer th:replace="/cabezaypie/pie::pie"></footer>
+        <!-- *** COPYRIGHT END ***-->
+    <!-- JavaScript files-->
+    <script src="/js/validacionContrasena/script.js"></script>
+    <script src="/js/index/jquery.min.js"></script>
+    <script src="/js/index/bootstrap.bundle.min.js"></script>
+    <script src="/js/index/jquery.cookie.js"> </script>
+    <script src="/js/index/owl.carousel.min.js"></script>
+    <script src="/js/index/owl.carousel2.thumbs.js"></script>
+    <script src="/js/index/front.js"></script>
+</body>
+</html>
+

@@ -55,6 +55,14 @@ public class Usuarios {
 		this.nombre = nombre;
 	}
 	
+	public Usuarios(int idRol, String nombre, String clave, String email) {
+		super();
+		this.idRol=idRol;
+		this.email = email;
+		this.clave = clave;
+		this.nombre = nombre;
+	}
+	
 	public Usuarios(int idRol, String email, String clave, String nombre, String apellido1, String apellido2,
 			String direccion, String provincia, String localidad, String telefono, String dni) {
 		super();
