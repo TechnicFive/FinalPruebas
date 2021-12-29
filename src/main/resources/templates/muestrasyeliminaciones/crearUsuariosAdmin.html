@@ -28,35 +28,72 @@
   </head>
 <body>
 	<header th:replace="/cabezaypie/cabecera::cabecera"></header>
-	<div>
-	<form id="registrar" class="input-group-regitro" th:action="@{/usuarios/registrarAdmin}" th:object="${registro}" method="post" style="text-align:center" onsubmit="return validadContrasena()">
-      <input type="text" name="nombre" placeholder="nombre" class="input-file" required="required" />
-      <input type="text" name="apellido1" placeholder="apellido1" class="input-file" required="required" />
-      <br>
-      <input type="text" name="apellido2" placeholder="apellido2" class="input-file" required="required" />
-      <input type="text" name="direccion" placeholder="direccion" class="input-file" required="required" />
-      <br>
-      <input type="text" name="dni" placeholder="dni" class="input-file" required="required" />
-      <select name="idRol">
-			<option type="number" th:if="${session.usuario.email} eq 'admin@admin'" value="1">Admin</option>
-			<option type="number" value="2">Empleado</option>
-			<option type="number" value="3">Cliente</option>
-	  </select>
-	  <br>
-      <input type="text" name="localidad" placeholder="localidad" class="input-file" required="required" />
-      <input type="text" name="provincia" placeholder="provincia" class="input-file" required="required" />
-      <br>
-      <input type="email" name="email" placeholder="email" class="input-file" required="required" />
-      <input type="text" name="telefono" placeholder="telefono" class="input-file" required="required" />
-      <br>
-      <input id="comprobacion1" type="password" name="clave" placeholder="Contraseña 8 digitos minimo" pattern=".{8,}" required="required" />
-      <input id="comprobacion2" type="password" name="calve" placeholder="Contraseña 8 digitos minimo" pattern=".{8,}"  />
-      <span id="validacion"></span>
-      <br>
-      <input type="checkbox" class="checkbox" required="required"><span>Acepto los terminos y condiciones de uso</span>
-      <button type="submit" class="boton">Registrarse</button>
-    </form>
-    
+	
+	<div class="container">
+		<div class="row justify-content-center aling-items-center">
+		<div class="col-lg-6">
+          	<div class="box">
+	          <div class="form-group">
+				<form id="registrar" class="input-group-regitro" th:action="@{/usuarios/registrarAdmin}" th:object="${registro}" method="post" style="text-align:center;" onsubmit="return validadContrasena()">
+			      	<h2>Nuevo Usuario</h2>
+			      <div class="form-inline">
+				      <div class="form-group mx-sm-3">
+				      	<input type="text" name="nombre" placeholder="nombre" class="input-file form-control" required="required" />
+				      </div>
+				      <div class="form-group mx-sm-3"> 
+				      	<input type="text" name="apellido1" placeholder="apellido1" class="input-file form-control" required="required" />
+				      </div>
+				      <br>
+				      <div class="form-group mx-sm-3" style="margin-top:10px;">
+				      	<input type="text" name="apellido2" placeholder="apellido2" class="input-file form-control" required="required" />
+				      </div>
+				      <div class="form-group mx-sm-3" style="margin-top:10px;">
+				      	<input type="text" name="direccion" placeholder="direccion" class="input-file form-control" required="required" />
+				      </div>
+				      <br>
+				      <div class="form-group mx-sm-3" style="margin-top:10px;">
+				      	<input type="text" name="dni" placeholder="dni" class="input-file form-control" required="required" />
+				      </div>
+				      <div class="form-group mx-sm-3" style="margin-top:10px;">
+					      <select name="idRol" class="form-control">
+								<option type="number" th:if="${session.usuario.email} eq 'admin@admin'" value="1">Admin</option>
+								<option type="number" value="2">Empleado</option>
+								<option type="number" value="3">Cliente</option>
+						  </select>
+					  </div>
+					  <br>
+					  <div class="form-group mx-sm-3" style="margin-top:10px;">
+				      <input type="text" name="localidad" placeholder="localidad" class="input-file form-control" required="required" />
+				      </div>
+				      <div class="form-group mx-sm-3" style="margin-top:10px;">
+				      <input type="text" name="provincia" placeholder="provincia" class="input-file form-control" required="required" />
+				      </div>
+				      <br>
+				      <div class="form-group mx-sm-3" style="margin-top:10px;">
+				      <input type="email" name="email" placeholder="email" class="input-file form-control" required="required" />
+				      </div>
+				      <div class="form-group mx-sm-3" style="margin-top:10px;">
+				      <input type="text" name="telefono" placeholder="telefono" class="input-file form-control" required="required" />
+				      </div>
+				      <br>
+				      <div class="form-group mx-sm-3" style="margin-top:10px;">
+				      <input id="comprobacion1" type="password" name="clave" placeholder="Contraseña 8 digitos minimo" pattern=".{8,}" required="required" class="form-control"/>
+				      </div>
+				      <div class="form-group mx-sm-3" style="margin-top:10px;">
+				      <input id="comprobacion2" type="password" name="calve" placeholder="Contraseña 8 digitos minimo" pattern=".{8,}" class="form-control" />
+					  </div>			      
+			      </div>
+			      <span id="validacion"></span>
+			      <br>
+			      <input type="checkbox" class="checkbox" required="required"><span>Acepto los terminos y condiciones de uso</span>
+			      <br>
+			      <button type="submit" class="btn btn-primary" >Registrarse</button>
+			    </form>
+			</div>
+    	 </div>
+		</div>
+		</div>
+	</div>    
 	<footer th:replace="/cabezaypie/pie::pie"></footer>
         <!-- *** COPYRIGHT END ***-->
     <!-- JavaScript files-->

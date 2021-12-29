@@ -83,7 +83,7 @@ public class CarritoMuestra {
 							Integer mas= productos.getUnidades()+1;
 							productos.setUnidades(mas);
 							double total = productos.getPrecioUnidad()*mas;
-							 total=Math.round(total * 100) / 100d;
+							total=Math.round(total * 100) / 100d;
 							productos.setTotal(total);
 							}
 							existe=true;
@@ -132,7 +132,7 @@ public class CarritoMuestra {
 										tota = tota+producto.getTotal();
 									}
 								}
-								 tota=Math.round(tota * 100) / 100d;
+								tota=Math.round(tota * 100) / 100d;
 								model.addAttribute("total", tota);
 								return "carrito/compra";
 								

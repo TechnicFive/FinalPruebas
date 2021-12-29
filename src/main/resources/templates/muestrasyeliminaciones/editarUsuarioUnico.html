@@ -28,21 +28,42 @@
   </head>
 <body>
 	<header th:replace="/cabezaypie/cabecera::cabecera"></header>
-	<form th:action="@{/usuarios/edicionUno}" th:objec="${registro}" method="post">
-		  <input type="hidden" name="id" placeholder="id" th:field="${usu.id}"/>	
-		  <input type="hidden" name="nombre" placeholder="nombre" th:field="${usu.nombre}"/>
-          <input type="hidden" name="apellido1" placeholder="apellido1" th:field="${usu.apellido1}"/>
-          <input type="hidden" name="apellido2" placeholder="apellido2" th:field="${usu.apellido2}"/>
-          <input type="text" name="direccion" placeholder="direccion" th:field=${usu.direccion}/>
-          <input type="hidden" name="dni" placeholder="dni" th:field="${usu.dni}"/>
-          <input type="hidden" name="idrol" th:field="${usu.idRol}"/>
-          <input type="text" name="localidad" placeholder="localidad" th:field="${usu.localidad}"/>
-          <input type="text" name="provincia" placeholder="provincia" th:field="${usu.provincia}"/>
-          <input type="hidden" name="email" placeholder="email" th:field="${usu.email}"/>
-          <input type="text" name="telefono" placeholder="telefono" th:field="${usu.telefono}"/>
-          <input type="hidden" name="clave" placeholder="contraseña" th:field=${usu.clave}/>
-          <button type="submit">Actualizar</button>            
-	</form>
+	<div class="container">
+		<div class="row justify-content-center aling-items-center">
+		<div class="col-lg-6">
+          	<div class="box">
+	          <div class="form-group">
+				<form th:action="@{/usuarios/edicionUno}" th:objec="${registro}" method="post" style="text-align:center">
+					  <h2> Editar Usuario </h2>
+					  <div class="form-inline">
+					  <input type="hidden" name="id" placeholder="id" th:field="${usu.id}"/>	
+					  <input type="hidden" name="nombre" placeholder="nombre" th:field="${usu.nombre}"/>
+			          <input type="hidden" name="apellido1" placeholder="apellido1" th:field="${usu.apellido1}"/>
+			          <input type="hidden" name="apellido2" placeholder="apellido2" th:field="${usu.apellido2}"/>
+			          <div style="margin-top:10px; margin-left:30px; width:208px; float: right;">
+			          Dirección <input type="text" name="direccion" placeholder="direccion" th:field=${usu.direccion}/>
+			          </div>
+			          <input type="hidden" name="dni" placeholder="dni" th:field="${usu.dni}"/>
+			          <input type="hidden" name="idrol" th:field="${usu.idRol}"/>
+			          <div style="margin-top:10px; margin-left:30px; width:208px; float: right;">
+			          Localidad <input type="text" name="localidad" placeholder="localidad" th:field="${usu.localidad}"/>
+			          </div>
+			          <div style="margin-top:10px; margin-left:30px; width:208px; float: right;">
+			          Provincia <input type="text" name="provincia" placeholder="provincia" th:field="${usu.provincia}"/>
+			          </div>
+			          <input type="hidden" name="email" placeholder="email" th:field="${usu.email}"/>
+			          <div style="margin-top:10px; margin-left:30px; width:208px; float: right;">
+			          Telefono<input type="text" name="telefono" placeholder="telefono" th:field="${usu.telefono}"/>
+			          </div>
+			          <input type="hidden" name="clave" placeholder="contraseña" th:field=${usu.clave}/>
+			          </div>
+			          <button type="submit" class="btn btn-primary" style="margin-top:10px;">Actualizar</button>            
+				</form>
+			</div>
+    	 </div>
+		</div>
+		</div>
+	</div> 
 	<footer th:replace="/cabezaypie/pie::pie"></footer>
         <!-- *** COPYRIGHT END ***-->
     <!-- JavaScript files-->

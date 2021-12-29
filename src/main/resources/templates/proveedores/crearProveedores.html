@@ -28,17 +28,43 @@
   </head>
 <body>
 	<header th:replace="/cabezaypie/cabecera::cabecera"></header>
-	
-	<form th:action="@{/proveedor/crear}" th:object="${proveedor}" method="post">
-		Nombre: <input type="text" name="nombre" placeholder="nombre" required="required" />
-		Direccion: <input type="text" name="direccion" placeholder="direccion" required="required" />
-		Localidad: <input type="text" name="localidad" placeholder="localidad" required="required" />
-		Provincia: <input type="text" name="provincia" placeholder="provincia" required="required" />
-		Telefono: <input type="text" name="telefono" placeholder="telefono" required="required" />
-		Cif: <input type="text" name="cif" placeholder="cif" required="required" />
-		Email: <input type="text" name="email" placeholder="email" required="required" />
-		<button type="submit" class="boton">Crear</button>
-    </form>
+	<div class="container">
+		<div class="row justify-content-center aling-items-center">
+		<div class="col-lg-6">
+          	<div class="box">
+	          <div class="form-group">
+				<form th:action="@{/proveedor/crear}" th:object="${proveedor}" method="post" style="text-align:center">
+								<h2>Nuevo Proveedor</h2>
+					<div class="form-inline">
+				      <div class="form-group mx-sm-3">
+						<input type="text" name="nombre" placeholder="Nombre" required="required" class="input-file form-control"/>
+						</div>
+						<div class="form-group mx-sm-3">
+						<input type="text" name="direccion" placeholder="Direccion" required="required" class="input-file form-control"/>
+						</div>
+						<div class="form-group mx-sm-3" style="margin-top:10px;">
+						<input type="text" name="localidad" placeholder="Localidad" required="required" class="input-file form-control"/>
+						</div>
+						<div class="form-group mx-sm-3" style="margin-top:10px;">
+						<input type="text" name="provincia" placeholder="Provincia" required="required" class="input-file form-control"/>
+						</div>
+						<div class="form-group mx-sm-3" style="margin-top:10px;">
+						<input type="text" name="telefono" placeholder="Telefono" required="required" class="input-file form-control"/>
+						</div>
+						<div class="form-group mx-sm-3" style="margin-top:10px;">
+						<input type="text" name="cif" placeholder="Cif" required="required" class="input-file form-control"/>
+						</div>
+						<div class="form-group mx-sm-3" style="margin-top:10px;">
+						<input type="text" name="email" placeholder="e-mail" required="required" class="input-file form-control"/>
+						</div>
+						</div>
+					<button type="submit" class="btn btn-primary" style="margin-top:10px;">Crear</button>
+			    </form>
+   			 </div>
+    	 </div>
+		</div>
+		</div>
+	</div>
 		                    	
 		                   
 	<footer th:replace="/cabezaypie/pie::pie"></footer>

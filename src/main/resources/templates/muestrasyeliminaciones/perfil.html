@@ -28,17 +28,45 @@
   </head>
 <body>
 	<header th:replace="/cabezaypie/cabecera::cabecera"></header>
-	<div class="container">
-		 <div class="product-slider owl-carousel owl-theme">                  
-		        <p th:text="${session.usuario.nombre}"></p>
-				<p th:text="${session.usuario.email}"></p>
-				<p th:text="${session.usuario.dni}"></p>
-				<p th:text="${session.usuario.clave}"></p>
-				<a th:href="@{/usuarios/editarUno/}+${session.usuario.id}"><button>Editar Perfil</button></a>
-				<a th:href="@{/usuarios/editarUnoContrasena/}+${session.usuario.id}"><button>Editar Contraseña</button></a>
-		 </div>
-	</div>
-	<a th:href="@{/pedidos/muestrapedidosUsuario}"><button>Ver pedidos</button></a>
+
+	
+	<div style="margin:50px auto; width:1000px;">
+		<table class="table table-responsive table-striped" style="text-align:left; width:100%">
+	
+			<thead>
+		        <tr>
+		            <th>Nombre</th>
+		            <th style="padding-left: 20px;">Email</th>
+		            <th style="padding-left: 20px;">Contraseña</th>
+		            <th style="padding-left: 20px;">Dirección</th>
+		            <th style="padding-left: 20px;">Localidad</th>
+		            <th style="padding-left: 20px;">Provincia</th>
+		            <th style="padding-left: 20px;">Telefono</th>
+		            <th style="padding-left: 20px;">Editar Perfil</th>
+		            <th style="padding-left: 20px;">Cambio Contraseña</th>
+		        </tr>
+		    </thead>
+		    <tbody>
+		        <tr>
+		            <td><h3 th:text="${session.usuario.nombre}"></h3></td>
+		            <td style="padding-left: 20px;"><p th:text="${session.usuario.email}"></p></td>
+		            <td style="padding-left: 20px;"><p  th:text="${session.usuario.clave}"> </p></td>
+		            <td style="padding-left: 20px;"><p  th:text="${session.usuario.direccion}"> </p></td>
+		            <td style="padding-left: 20px;"><p  th:text="${session.usuario.localidad}"> </p></td>
+		            <td style="padding-left: 20px;"><p  th:text="${session.usuario.provincia}"> </p></td>
+		            <td style="padding-left: 20px;"><p  th:text="${session.usuario.telefono}"> </p></td>
+		            <td style="padding-left: 20px;"><a th:href="@{/usuarios/editarUno/}+${session.usuario.id}"><button type="button" class="btn btn-primary">Editar Perfil</button></a></td>
+		            <td style="padding-left: 20px;"><a th:href="@{/usuarios/editarUnoContrasena/}+${session.usuario.id}"><button type="button" class="btn btn-primary">Editar Contraseña</button></a></td>
+		        </tr>
+		    </tbody>
+	
+		</table>
+	</div> 
+	
+	<div style="text-align: center;">
+		<a th:href="@{/pedidos/muestrapedidosUsuario}"><button type="button" class="btn btn-primary">Ver pedidos</button></a>
+	</div>   
+	<br>
 	<footer th:replace="/cabezaypie/pie::pie"></footer>
         <!-- *** COPYRIGHT END ***-->
     <!-- JavaScript files-->

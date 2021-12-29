@@ -28,20 +28,49 @@
   </head>
 <body>
 	<header th:replace="/cabezaypie/cabecera::cabecera"></header>
-	<form id="registrar" class="input-group-regitro" th:action="@{/nuevoProducto}" th:objec="${producto}" method="post">
-       <input type="text" name="nombre" placeholder="nombre" class="input-file" required="required" />
-		<select name="idCategoria">
-			<option th:each="desplegar : ${categorias}" th:value="${desplegar.id}" th:text="${desplegar.nombre}"></option> 
-		</select>
-       <input type="text" name="descripcion" placeholder="descripcion" class="input-file" required="required" />
-       <input type="number" name="precio" placeholder="1.0 precio" step="0.01" class="input-file" required="required" />
-       <input type="number" name="stock" placeholder="1 stock" class="input-file" required="required" />
-       <input type="number" name="impuesto" placeholder="1.0 impuesto" step="0.01" min="0.01" max="21" class="input-file" required="required" />
-       <select name="idProveedor">
-			<option th:each="proveedor : ${proveedores}" th:value="${proveedor.id}" th:text="${proveedor.nombre}"></option> 
-		</select>
-       <button type="submit" class="boton">Registrarse</button>
-    </form>
+	<div class="container">
+		<div class="row justify-content-center aling-items-center">
+		<div class="col-lg-6">
+          	<div class="box">
+	          <div class="form-group">
+				<form id="registrar" class="input-group-regitro" th:action="@{/nuevoProducto}" th:objec="${producto}" method="post" style="text-align:center">
+			       			<h2>Nuevo Producto</h2>
+			       <div class="form-inline">
+				      <div class="form-group mx-sm-3">
+					     <input type="text" name="nombre" placeholder="nombre" class="input-file form-control" required="required" />
+					  </div>
+					  <div class="form-group mx-sm-3">
+							<select name="idCategoria" class="input-file form-control" required="required">
+								<option value="">Categoria</option>
+								<option th:each="desplegar : ${categorias}" th:value="${desplegar.id}" th:text="${desplegar.nombre}"></option> 
+							</select>
+					  </div>
+					  <div class="form-group mx-sm-3" style="margin-top:10px;">
+					       <input type="text" name="descripcion" placeholder="descripcion" class="input-file form-control" required="required" />
+					  </div>
+					  <div class="form-group mx-sm-3" style="margin-top:10px;">     
+					       <input type="number" name="precio" placeholder="1.0 precio" step="0.01" class="input-file form-control" required="required" />
+					  </div>
+					  <div class="form-group mx-sm-3" style="margin-top:10px;">
+					       <input type="number" name="stock" placeholder="1 stock" class="input-file form-control" required="required" />
+					  </div>
+					  <div class="form-group mx-sm-3" style="margin-top:10px;">     
+					       <input type="number" name="impuesto" placeholder="1.0 impuesto" step="0.01" min="0.01" max="21" class="input-file form-control" required="required" />
+					  </div>
+					  <div class="row form-group mx-sm-3" style="margin-top:10px;">
+					       <select name="idProveedor" class="input-file form-control" required="required">
+					       		<option value="">Proveedor</option>
+								<option th:each="proveedor : ${proveedores}" th:value="${proveedor.id}" th:text="${proveedor.nombre}"></option> 
+							</select>
+					  </div>
+					</div>
+					       <button type="submit" class="btn btn-primary" >Registrarse</button>
+			    </form>
+			   </div>
+    	 </div>
+		</div>
+		</div>
+	</div> 
     <footer th:replace="/cabezaypie/pie::pie"></footer>
         <!-- *** COPYRIGHT END ***-->
     <!-- JavaScript files-->

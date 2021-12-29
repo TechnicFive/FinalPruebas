@@ -29,18 +29,38 @@
 <body>
 	<header th:replace="/cabezaypie/cabecera::cabecera"></header>
 	
-	<form th:action="@{/configuracion/crear}" th:object="${config}" method="post">
-		Clave: <input type="text" name="clave" placeholder="clave" required="required" />
-		Valor: <input type="text" name="valor" placeholder="valor" required="required" />
-		Tipo: <select name="tipo">
-			<option value="String">String</option> 
-			<option value="Double">Double</option>
-			<option value="Float">Float</option>
-			<option value="Integer">Integer</option>
-			<option value="Date">Date</option>
-		</select>
-		<button type="submit" class="boton">Crear</button>
-    </form>
+	<div class="container">
+		<div class="row justify-content-center aling-items-center">
+		<div class="col-lg-6">
+          	<div class="box">
+	          <div class="form-group">
+				<form th:action="@{/configuracion/crear}" th:object="${config}" method="post" style="text-align:center">
+					<h2>Nueva Configuración</h2>
+					<div class="form-inline">
+				      <div class="form-group mx-sm-3">
+						<input type="text" name="clave" placeholder="Clave" required="required" class="input-file form-control"/>
+					  </div>
+					  <div class="form-group mx-sm-3">
+						<input type="text" name="valor" placeholder="Valor" required="required" class="input-file form-control"/>
+					  </div>
+					  <div class="form-group mx-sm-3" style="margin-top:10px;">
+						<select name="tipo" class="input-file form-control" required="required">
+							<option value="">Tipo</option>
+							<option value="String">String</option> 
+							<option value="Double">Double</option>
+							<option value="Float">Float</option>
+							<option value="Integer">Integer</option>
+							<option value="Date">Date</option>
+						</select>
+						</div>
+					</div>
+					<button type="submit" class="btn btn-primary">Crear</button>
+			    </form>
+			    </div>
+    	 </div>
+		</div>
+		</div>
+	</div>  
 		                    	
 		                   
 	<footer th:replace="/cabezaypie/pie::pie"></footer>

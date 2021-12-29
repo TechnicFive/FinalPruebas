@@ -28,23 +28,39 @@
   </head>
 <body>
 	<header th:replace="/cabezaypie/cabecera::cabecera"></header>
-	<form th:action="@{/usuarios/edicionUnoContrasena}" th:objec="${registro}" method="post" onsubmit="return validadContrasena()">
-		  <input type="hidden" name="id" placeholder="id" th:field="${usu.id}"/>	
-		  <input type="hidden" name="nombre" placeholder="nombre" th:field="${usu.nombre}"/>
-          <input type="hidden" name="apellido1" placeholder="apellido1" th:field="${usu.apellido1}"/>
-          <input type="hidden" name="apellido2" placeholder="apellido2" th:field="${usu.apellido2}"/>
-          <input type="hidden" name="direccion" placeholder="direccion" th:field=${usu.direccion}/>
-          <input type="hidden" name="dni" placeholder="dni" th:field="${usu.dni}"/>
-          <input type="hidden" name="idrol" th:field="${usu.idRol}"/>
-          <input type="hidden" name="localidad" placeholder="localidad" th:field="${usu.localidad}"/>
-          <input type="hidden" name="provincia" placeholder="provincia" th:field="${usu.provincia}"/>
-          <input type="hidden" name="email" placeholder="email" th:field="${usu.email}"/>
-          <input type="hidden" name="telefono" placeholder="telefono" th:field="${usu.telefono}"/>
-          <input id="comprobacion1" type="password" name="clave" placeholder="Contraseña 8 digitos minimo" pattern=".{8,}" />
-          <input id="comprobacion2" type="password" name="calve" placeholder="Contraseña 8 digitos minimo" pattern=".{8,}" />
-          <span id="validacion"></span>
-          <button type="submit">Actualizar</button>            
-	</form>
+	<div class="container">
+		<div class="row justify-content-center aling-items-center">
+		<div class="col-lg-4">
+          	<div class="box">
+	          <div class="form-group">
+				<form th:action="@{/usuarios/edicionUnoContrasena}" th:objec="${registro}" method="post" onsubmit="return validadContrasena()">
+					  <input type="hidden" name="id" placeholder="id" th:field="${usu.id}"/>	
+					  <input type="hidden" name="nombre" placeholder="nombre" th:field="${usu.nombre}"/>
+			          <input type="hidden" name="apellido1" placeholder="apellido1" th:field="${usu.apellido1}"/>
+			          <input type="hidden" name="apellido2" placeholder="apellido2" th:field="${usu.apellido2}"/>
+			          <input type="hidden" name="direccion" placeholder="direccion" th:field=${usu.direccion}/>
+			          <input type="hidden" name="dni" placeholder="dni" th:field="${usu.dni}"/>
+			          <input type="hidden" name="idrol" th:field="${usu.idRol}"/>
+			          <input type="hidden" name="localidad" placeholder="localidad" th:field="${usu.localidad}"/>
+			          <input type="hidden" name="provincia" placeholder="provincia" th:field="${usu.provincia}"/>
+			          <input type="hidden" name="email" placeholder="email" th:field="${usu.email}"/>
+			          <input type="hidden" name="telefono" placeholder="telefono" th:field="${usu.telefono}"/>
+				      <h2 class="text-center" >Nueva contraseña</h2>
+				      <br>
+				      <input id="comprobacion1" type="password" name="clave" placeholder="Contraseña 8 digitos minimo" pattern=".{8,}" class="form-control"/>
+				      <br>
+				      <input id="comprobacion2" type="password" name="calve" placeholder="Contraseña 8 digitos minimo" pattern=".{8,}" class="form-control"/>    
+			          <span id="validacion"></span>
+			          <br>
+			          <div class="text-center">
+			          	<button type="submit" class="btn btn-primary">Actualizar</button>
+			          </div>            
+				</form>
+	       </div>
+    	 </div>
+		</div>
+		</div>
+	</div>
 	<footer th:replace="/cabezaypie/pie::pie"></footer>
         <!-- *** COPYRIGHT END ***-->
     <!-- JavaScript files-->

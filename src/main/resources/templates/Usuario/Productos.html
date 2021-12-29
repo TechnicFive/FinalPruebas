@@ -28,17 +28,34 @@
   </head>
 <body>
 	<header th:replace="/cabezaypie/cabecera::cabecera"></header>
-	<div class="container" th:each="pedido : ${Productos}">
-		 <div class="product-slider owl-carousel owl-theme">                  
-		       <h3 th:text="${pedido.nombre}"></h3>
-		       <p th:text="${pedido.precioUnidad}"></p>
-		       <p th:text="${pedido.unidades}"></p>
-		       <p th:text="${pedido.impuesto}"></p>
-		       <p th:text="${pedido.total}"></p>
-		       <a th:if="${pedidos.estado} eq 'Pendiente'" th:href="@{/pedidos/eliminarLinea/}+${pedido.id}"><button type="button" onclick="if (!confirm('Realmente desea cancelar la linea?')) return false">Cancelar Linea</button></a>	 		
-		 </div>
+	
+	<div style="margin:50px auto; width:1000px;">
+		<table class="table table-responsive table-striped" style="text-align:left; width:100%">
+	
+			<thead>
+		        <tr>
+		            <th>Nombre</th>
+		            <th style="padding-left: 20px;">Precio Unidad</th>
+		            <th style="padding-left: 20px;">Unidades</th>
+		            <th style="padding-left: 20px;">Impuesto</th>
+		            <th style="padding-left: 20px;">Total</th>
+		            <th style="padding-left: 20px;">Cancelar Linea</th>
+		        </tr>
+		    </thead>
+		    <tbody>
+		        <tr th:each="pedido : ${Productos}">
+		            <td><h3 th:text="${pedido.nombre}"></h3></td>
+		            <td style="padding-left: 20px;"><p th:text="${pedido.precioUnidad}+' €'"></p></td>
+		            <td style="padding-left: 10px;"><p th:text="${pedido.unidades}"></p></td>
+		            <td style="padding-left: 20px;"><p th:text="${pedido.impuesto}+' %'"></p></td>
+		            <td style="padding-left: 20px;"><p th:text="${pedido.total}+'€'"></p></td>
+		            <td style="padding-left: 20px;"><a th:if="${pedidos.estado} eq 'Pendiente'" th:href="@{/pedidos/eliminarLinea/}+${pedido.id}"><button type="button"  class="btn btn-primary" style="background-color: #C01A06; border-color: #C01A06;" onclick="if (!confirm('Realmente desea eliminar?')) return false">Cancelar Linea</button></a></td>
+		        </tr>
+		    </tbody>
+	
+		</table>
 	</div>
-
+	
 		                    	
 		                   
 	<footer th:replace="/cabezaypie/pie::pie"></footer>

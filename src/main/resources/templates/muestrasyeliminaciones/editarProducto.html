@@ -28,19 +28,35 @@
   </head>
 <body>
 	<header th:replace="/cabezaypie/cabecera::cabecera"></header>
-	<form th:action="@{/edicion}" th:objec="${producto}" method="post">
-		  <input type="hidden" name="id" placeholder="id" th:field="${pro.id}"/>	
-		  <input type="hidden" name="idCategoria" placeholder="idCategoria" th:field="${pro.idCategoria}"/>
-          <input type="text" name="nombre" placeholder="nombre" th:field=${pro.nombre}/>
-          <input type="text" name="descripcion" placeholder="descripcion" th:field=${pro.descripcion}/>
-          <input type="number" name="precio" placeholder="1.0" step="0.01" th:field="${pro.precio}"/>
-          <input type="number" name="stock" placeholder="1" th:field="${pro.stock}"/>
-          <input type="number" name="impuesto" placeholder="1.0" step="0.01" min="0" max="21" th:field="${pro.impuesto}"/>
-          <input type="hidden" name="imagen" placeholder="img" th:field="${pro.imagen}"/>
-          <input type="hidden" name="idProveedor" placeholder="idProveedor" th:field="${pro.idProveedor}"/>
-          
-          <button type="submit">Actualizar</button>            
-	</form>
+	<div class="container">
+		<div class="row justify-content-center aling-items-center">
+		<div class="col-lg-6">
+          	<div class="box">
+	          <div class="form-group">
+				<form th:action="@{/edicion}" th:objec="${producto}" method="post" style="text-align:center">
+					  <h2 th:text="'Editar el producto '+${pro.nombre}"></h2>
+					  <div class="form-inline">
+					  <input type="hidden" name="id" placeholder="id" th:field="${pro.id}"/>	
+					  <input type="hidden" name="idCategoria" placeholder="idCategoria" th:field="${pro.idCategoria}"/>
+			          <input type="hidden" name="nombre" placeholder="nombre" th:field=${pro.nombre}/>
+			          <input type="hidden" name="descripcion" placeholder="descripcion" th:field=${pro.descripcion}/>
+			          <div style="margin-top:10px; margin-left:30px; width:208px; float: right;">
+			           Precio <input type="number" name="precio" placeholder="1.0" step="0.01" th:field="${pro.precio}" class="input-file form-control"/>
+			          </div>
+			          <div style="margin-top:10px; width:210px; float: right;">
+			           Stock <input type="number" name="stock" placeholder="1" th:field="${pro.stock}" class="input-file form-control"/>
+			          </div>
+			          <input type="hidden" name="impuesto" placeholder="1.0" step="0.01" min="0" max="21" th:field="${pro.impuesto}"/>
+			          <input type="hidden" name="imagen" placeholder="img" th:field="${pro.imagen}"/>
+			          <input type="hidden" name="idProveedor" placeholder="idProveedor" th:field="${pro.idProveedor}"/>
+			          </div>
+			          <button type="submit" class="btn btn-primary" style="margin-top:10px;">Actualizar</button>            
+				</form>
+			</div>
+    	 </div>
+		</div>
+		</div>
+	</div> 
 	<footer th:replace="/cabezaypie/pie::pie"></footer>
         <!-- *** COPYRIGHT END ***-->
     <!-- JavaScript files-->

@@ -28,25 +28,48 @@
   </head>
 <body>
 	<header th:replace="/cabezaypie/cabecera::cabecera"></header>
-	
-	<form style="text-align:center">
-        Nombre: <input type="text" name="nombre"  th:value=${session.usuario.nombre} disabled/>
-        Apellido: <input type="text" name="apellido1" th:value=${session.usuario.apellido1} disabled/>
-        <br>
-        Segundo Apellido: <input type="text" name="apellido2" th:value=${session.usuario.apellido2} disabled/>
-        Dirección: <input type="text" name="direccion" th:value=${session.usuario.direccion} disabled/>
-        <br>
-        <a th:href="@{/usuarios/editarUno/}+${session.usuario.id}" class="btn btn-outline-secondary">Editar</a>         
-	</form>
-	<form th:action="@{/carrito/comprado}" th:object="${pedido}" method="post" style="text-align:center">
-		Estado: <input type="text" name="estado" th:value="${session.pedidos.estado}" disabled/>
-		<br>
-		Metodo de pago:<p th:each="metodo : ${metodoPago}">
-    		<input type="radio" name="metodoPago" th:value="${metodo.nombre}" th:text="${metodo.nombre}" required="required">
-  		</p>
-  		<button type="submit" class="btn btn-outline-secondary">Comprar</button>
-	</form>
-	
+	<div class="container">
+		<div class="row justify-content-center aling-items-center">
+		<div class="col-lg-6">
+          	<div class="box">
+	          <div class="form-group">
+				<form style="text-align:center">
+			        <div class="form-inline">
+			        <div style="margin-top:10px; margin-left:30px; width:208px; float: right;">
+			        Nombre <input type="text" name="nombre"  th:value=${session.usuario.nombre} disabled/>
+			        </div>
+			        <div style="margin-top:10px; margin-left:30px; width:208px; float: right;">
+			        Apellido <input type="text" name="apellido1" th:value=${session.usuario.apellido1} disabled/>
+			        </div>
+			        <div style="margin-top:10px; margin-left:30px; width:208px; float: right;">
+			        Segundo Apellido <input type="text" name="apellido2" th:value=${session.usuario.apellido2} disabled/>
+			        </div>
+			        <div style="margin-top:10px; margin-left:30px; width:208px; float: right;">
+			        Dirección<input type="text" name="direccion" th:value=${session.usuario.direccion} disabled/>
+			        </div>
+			        </div>
+			        <a th:href="@{/usuarios/editarUno/}+${session.usuario.id}" class="btn btn-outline-secondary" style="margin-top:10px;">Editar</a>         
+				</form>
+				
+				
+				<form th:action="@{/carrito/comprado}" th:object="${pedido}" method="post" style="text-align:center">
+					<div class="form-inline">
+					<div style="margin-top:10px; margin-left:30px; width:208px; float: right;">
+					Estado <input type="text" name="estado" th:value="${session.pedidos.estado}" disabled/>
+					</div>
+					<div style="margin-top:10px; margin-left:30px; width:208px; float: right;">
+					Metodo de pago<p th:each="metodo : ${metodoPago}">
+			    		<input type="radio" name="metodoPago" th:value="${metodo.nombre}" th:text="${metodo.nombre}" required="required">
+			  		</p>
+			  		</div>
+			  		</div>
+			  		<button type="submit" class="btn btn-primary" style="margin-top:10px;">Comprar</button>
+				</form>
+		</div>
+    	 </div>
+		</div>
+		</div>
+	</div> 
 	
 		
   

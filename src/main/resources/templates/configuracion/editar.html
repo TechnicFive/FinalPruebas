@@ -29,13 +29,29 @@
 <body>
 	<header th:replace="/cabezaypie/cabecera::cabecera"></header>
 	
-	<form th:action="@{/configuracion/edicion}" th:object="${config}" method="post">
-			<input type="hidden" name="id" placeholder="1" th:value="${configuracion.id}"/>
-		Clave: <input type="text" name="clave" placeholder="clave" th:value="${configuracion.clave}" disabled/>
-		Valor: <input type="text" name="valor" placeholder="valor" th:value="${configuracion.valor}" />
-		<button type="submit" class="boton">Editar</button>
-    </form>
-		                    	
+	<div class="container">
+		<div class="row justify-content-center aling-items-center">
+		<div class="col-lg-6">
+          	<div class="box">
+	          <div class="form-group">
+				<form th:action="@{/configuracion/edicion}" th:object="${config}" method="post" style="text-align:center">
+						<h2>Editar Configuración</h2>
+					<div class="form-inline">
+					<input type="hidden" name="id" placeholder="1" th:value="${configuracion.id}"/>
+					<div style="margin-top:10px; margin-left:30px; width:208px; float: right;">
+					Clave <input type="text" name="clave" placeholder="clave" th:value="${configuracion.clave}" disabled class="input-file form-control"/>
+					</div>
+					<div style="margin-top:10px; margin-left:30px; width:208px; float: right;">
+					Valor <input type="text" name="valor" placeholder="valor" th:value="${configuracion.valor}" class="input-file form-control"/>
+					</div>
+					</div>
+					<button type="submit" class="btn btn-primary" style="margin-top:10px;">Editar</button>
+			    </form>
+		    </div>
+    	 </div>
+		</div>
+		</div>
+	</div>             	
 		                   
 	<footer th:replace="/cabezaypie/pie::pie"></footer>
         <!-- *** COPYRIGHT END ***-->

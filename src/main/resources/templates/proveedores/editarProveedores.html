@@ -28,18 +28,44 @@
   </head>
 <body>
 	<header th:replace="/cabezaypie/cabecera::cabecera"></header>
-	
-	<form th:action="@{/proveedor/edicion}" th:object="${config}" method="post">
-				<input type="hidden" name="nombre" placeholder="nombre" th:field="${proveedor.id}"/>
-		Nombre: <input type="text" name="nombre" placeholder="nombre" th:field="${proveedor.nombre}" readonly/>
-		Direccion: <input type="text" name="direccion" placeholder="direccion" th:field="${proveedor.direccion}"/>
-		Localidad: <input type="text" name="localidad" placeholder="localidad" th:field="${proveedor.localidad}"/>
-		Provincia: <input type="text" name="provincia" placeholder="provincia" th:field="${proveedor.provincia}"/>
-		Telefono: <input type="text" name="telefono" placeholder="telefono" th:field="${proveedor.telefono}"/>
-		Cif: <input type="text" name="cif" th:field="${proveedor.cif}" readonly/>
-		Email: <input type="text" name="email" placeholder="email" th:field="${proveedor.email}"/>
-		<button type="submit" class="boton">Editar</button>
-    </form>
+	<div class="container">
+		<div class="row justify-content-center aling-items-center">
+		<div class="col-lg-6">
+          	<div class="box">
+	          <div class="form-group">
+				<form th:action="@{/proveedor/edicion}" th:object="${config}" method="post" style="text-align:center">
+				<h2 th:text="'Editar Proveedor '+${proveedor.nombre}"></h2>
+				<div class="form-inline">
+							<input type="hidden" name="nombre" placeholder="nombre" th:field="${proveedor.id}"/>
+					<div style="margin-top:10px; margin-left:30px; width:208px; float: right;">
+					Nombre <input type="text" name="nombre" placeholder="nombre" th:field="${proveedor.nombre}" readonly class="input-file form-control"/>
+					</div>
+					<div style="margin-top:10px; margin-left:30px; width:208px; float: right;">
+					Direccion <input type="text" name="direccion" placeholder="direccion" th:field="${proveedor.direccion}" class="input-file form-control"/>
+					</div>
+					<div style="margin-top:10px; margin-left:30px; width:208px; float: right;">
+					Localidad <input type="text" name="localidad" placeholder="localidad" th:field="${proveedor.localidad}" class="input-file form-control"/>
+					</div>
+					<div style="margin-top:10px; margin-left:30px; width:208px; float: right;">
+					Provincia <input type="text" name="provincia" placeholder="provincia" th:field="${proveedor.provincia}" class="input-file form-control"/>
+					</div>
+					<div style="margin-top:10px; margin-left:30px; width:208px; float: right;">
+					Telefono <input type="text" name="telefono" placeholder="telefono" th:field="${proveedor.telefono}" class="input-file form-control"/>
+					</div>
+					<div style="margin-top:10px; margin-left:30px; width:208px; float: right;">
+					Cif <input type="text" name="cif" th:field="${proveedor.cif}" readonly class="input-file form-control"/>
+					</div>
+					<div style="margin-top:10px; margin-left:30px; width:208px; float: right;">
+					Email <input type="text" name="email" placeholder="email" th:field="${proveedor.email}" class="input-file form-control"/>
+					</div>
+				</div>
+					<button type="submit" class="btn btn-primary" style="margin-top:10px;">Editar</button>
+			    </form>
+			  </div>
+    	 </div>
+		</div>
+		</div>
+	</div>
 		                    	
 		                   
 	<footer th:replace="/cabezaypie/pie::pie"></footer>

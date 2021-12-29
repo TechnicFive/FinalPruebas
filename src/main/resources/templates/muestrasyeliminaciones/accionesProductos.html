@@ -28,23 +28,40 @@
   </head>
 <body>
 	<header th:replace="/cabezaypie/cabecera::cabecera"></header>
-	<div class="container" th:each="productos : ${Productos}">
-		 <div class="product-slider owl-carousel owl-theme">
-		 	<tr>                 
-		       <td><h3 th:text="${productos.nombre}"></h3></td>
-		       <td><p th:text="${productos.descripcion}" style= "margin-left:25px;"></p></td>
-		       <td><p th:text="${productos.precio}+' €'" style= "margin-left:25px;"> </p></td>
-		       <td><p th:text="${productos.stock}"></p></td>
-		       <td><p th:text="${productos.fechaAlta}"></p></td>
-		       <td><a th:href="@{/editar/}+${productos.id}"><button type="button">Editar</button></a></td>
-		       <td><a th:href="@{/eliminar/}+${productos.id}"><button type="button" onclick="if (!confirm('Realmente desea eliminar?')) return false">Eliminar</button></a></td>
-		    </tr>
-		 </div>
+	
+	<div style="text-align: center;">
+		<a th:href="@{/nuevospro}"><button type="button" class="btn btn-primary">Crear Producto</button></a>
+		<a th:href="@{/excel}"><button type="button" class="btn btn-primary">Descargar Excel</button></a>
 	</div>
-	<a th:href="@{/nuevospro}"><button type="button">Crear Producto</button></a>
-	<a th:href="@{/excel}"><button type="button">Descargar Excel</button></a>
-
-		                    	
+	
+	<div style="margin:50px auto; width:1000px;">
+		<table class="table table-responsive table-striped" style="text-align:left; width:100%">
+	
+			<thead>
+		        <tr>
+		            <th>Nombre</th>
+		            <th style="padding-left: 20px;">Descripción</th>
+		            <th style="padding-left: 20px;">Precio</th>
+		            <th style="padding-left: 20px;">Stock</th>
+		            <th style="padding-left: 20px;">Fecha Alta</th>
+		            <th style="padding-left: 20px;">Editar</th>
+		            <th style="padding-left: 20px;">Eliminar</th>
+		        </tr>
+		    </thead>
+		    <tbody>
+		        <tr th:each="productos : ${Productos}">
+		            <td><h3 th:text="${productos.nombre}"></h3></td>
+		            <td style="padding-left: 20px;"><p th:text="${productos.descripcion}"></p></td>
+		            <td style="padding-left: 10px;"><p th:text="${productos.precio}+' €'"></p></td>
+		            <td style="padding-left: 20px;"><p th:text="${productos.stock}"></p></td>
+		            <td style="padding-left: 20px;"><p th:text="${productos.fechaAlta}"></p></td>
+		            <td style="padding-left: 20px;"><a th:href="@{/editar/}+${productos.id}"><button type="button" class="btn btn-primary">Editar</button></a></td>
+		            <td style="padding-left: 20px;"><a th:href="@{/eliminar/}+${productos.id}"><button type="button"  class="btn btn-primary" style="background-color: #C01A06; border-color: #C01A06;" onclick="if (!confirm('Realmente desea eliminar?')) return false">Eliminar</button></a></td>
+		        </tr>
+		    </tbody>
+	
+		</table>
+	</div>                    	
 		                   
 	<footer th:replace="/cabezaypie/pie::pie"></footer>
         <!-- *** COPYRIGHT END ***-->

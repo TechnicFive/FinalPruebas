@@ -28,19 +28,40 @@
   </head>
 <body>
 	<header th:replace="/cabezaypie/cabecera::cabecera"></header>
-	<div class="container" th:each="pedido : ${Pedidos}">
-		 <div class="product-slider owl-carousel owl-theme">                  
-		       <h3 th:text="${pedido.fecha}"></h3>
-		       <p th:text="${pedido.metodoPago}"></p>
-		       <p th:text="${pedido.estado}"></p>
-		       <p th:text="${pedido.numFactura}"></p>
-		       <p th:text="${pedido.total}"></p>
-		       <a th:if="${session.usuario.idRol} eq '1'" th:href="@{/pedidos/cancelar/}+${pedido.id}"><button type="button">Cancelar</button></a>
-		       <a th:if="${pedido.estado} ne 'Solicitud Cancelacion'" th:href="@{/pedidos/enviar/}+${pedido.id}"><button type="button">Enviar</button></a>
-		       <a th:if="${pedido.estado} eq 'Cancelar linea'" th:href="@{/pedidos/linea/}+${pedido.id}"><button type="button">Informacion Pedido</button></a>
-		 </div>
-	</div>
-
+	<div style="text-align: center;">
+		<a th:href="@{/pedidos/enviados}"><button type="button" class="btn btn-primary">Pedidos Enviados</button></a>
+		<a th:href="@{/pedidos/cancelados}"><button type="button" class="btn btn-primary">Pedidos Cancelados</button></a>
+	</div>	
+	<div style="margin:50px auto; width:1000px;">
+		<table class="table table-responsive table-striped" style="text-align:left; width:100%">
+	
+			<thead>
+		        <tr>
+		            <th>Fecha</th>
+		            <th style="padding-left: 20px;">Método pago</th>
+		            <th style="padding-left: 20px;">Estado</th>
+		            <!--  <th style="padding-left: 20px;">Numero factura</th>-->
+		            <th style="padding-left: 30px;">Total</th>
+		            <th style="padding-left: 20px;">Cancelar</th>
+		            <th style="padding-left: 20px;">Enviar</th>
+		            <th style="padding-left: 20px;">Información Pedido</th>
+		        </tr>
+		    </thead>
+		    <tbody>
+		        <tr th:each="pedido : ${Pedidos}">
+		            <td><h4 th:text="${pedido.fecha}"></h4></td>
+		            <td style="padding-left: 20px;"><p th:text="${pedido.metodoPago}"></p></td>
+		            <td style="padding-left: 20px;"><p th:text="${pedido.estado}"></p></td>
+		            <!--  <td style="padding-left: 20px;"><p th:text="${pedido.numFactura}"></p></td>-->
+		            <td style="padding-left: 10px;"><p th:text="${pedido.total}+' €'"></p></td>
+		            <td style="padding-left: 20px;"><a th:if="${session.usuario.idRol} eq '1'" th:href="@{/pedidos/cancelar/}+${pedido.id}"><button type="button"  class="btn btn-primary" style="background-color: #C01A06; border-color: #C01A06;" onclick="if (!confirm('Realmente desea cancelar el pedido?')) return false">Cancelar</button></a></td> 
+		            <td style="padding-left: 20px;"><a th:if="${pedido.estado} ne 'Solicitud Cancelacion'" th:href="@{/pedidos/enviar/}+${pedido.id}"><button type="button" class="btn btn-primary">Enviar</button></a></td>
+		            <td style="padding-left: 20px;"><a th:if="${pedido.estado} eq 'Cancelar linea'" th:href="@{/pedidos/linea/}+${pedido.id}"><button type="button" class="btn btn-primary">Informacion Pedido</button></a></td>
+		        </tr>
+		    </tbody>
+	
+		</table>
+	</div>     
 		                    	
 		                   
 	<footer th:replace="/cabezaypie/pie::pie"></footer>

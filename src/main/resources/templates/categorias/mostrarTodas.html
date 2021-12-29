@@ -28,13 +28,29 @@
   </head>
 <body>
 	<header th:replace="/cabezaypie/cabecera::cabecera"></header>
-	<div class="container" th:each="cate : ${categorias}">
-		 <div class="product-slider owl-carousel owl-theme">                  
-		       <h3 th:text="${cate.nombre}"></h3>
-		       <p th:text="${cate.descripcion}"></p>
-		 </div>
+	
+	<div style="text-align: center;">
+		<a th:href="@{/categoria/crear}"><button type="button" class="btn btn-primary">Crear Categoria</button></a>
 	</div>
-	<a th:href="@{/categoria/crear}"><button type="button">Crear Categoria</button></a>
+	
+	<div style="margin:50px auto; width:600px;">
+		<table class="table table-responsive table-striped" style="text-align:left; width:100%">
+	
+			<thead>
+		        <tr>
+		            <th>Nombre</th>
+		            <th style="padding-left: 20px;">Descripción</th>
+		        </tr>
+		    </thead>
+		    <tbody>
+		        <tr th:each="cate : ${categorias}">
+		            <td><h3 th:text="${cate.nombre}"></h3></td>
+		            <td style="padding-left: 20px;"><p th:text="${cate.descripcion}"></p></td>
+		        </tr>
+		    </tbody>
+	
+		</table>
+	</div>
 
 		                    	
 		                   

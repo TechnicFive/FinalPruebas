@@ -28,20 +28,44 @@
   </head>
 <body>
 	<header th:replace="/cabezaypie/cabecera::cabecera"></header>
-	<div class="container" th:each="proveedor : ${proveedores}">
-		 <div class="product-slider owl-carousel owl-theme">                  
-		       <h3 th:text="${proveedor.nombre}"></h3>
-		       <p th:text="${proveedor.direccion}"></p>
-		       <p th:text="${proveedor.localidad}"></p>
-		       <p th:text="${proveedor.provincia}"></p>
-		       <p th:text="${proveedor.telefono}"></p>
-		       <p th:text="${proveedor.cif}"></p>
-		       <p th:text="${proveedor.email}"></p>
-		       <a th:href="@{/proveedor/editar/}+${proveedor.id}"><button type="button">Editar</button></a>
-		       <a th:href="@{/proveedor/eliminar/}+${proveedor.id}"><button type="button">Eliminar</button></a>
-		 </div>
+	
+	
+	<div style="text-align: center;">
+		<a th:href="@{/proveedor/crear}"><button type="button" class="btn btn-primary">Crear Proveedores</button></a>
 	</div>
-	<a th:href="@{/proveedor/crear}"><button type="button">Crear Proveedores</button></a>
+	
+	<div style="margin:50px auto; width:1100px;">
+		<table class="table table-responsive table-striped" style="text-align:left; width:100%">
+	
+			<thead>
+		        <tr>
+		            <th>Nombre</th>
+		            <th style="padding-left: 20px;">Dirección</th>
+		            <th style="padding-left: 20px;">Localidad</th>
+		            <th style="padding-left: 20px;">Provincia</th>
+		            <th style="padding-left: 20px;">Telefono</th>
+		            <th style="padding-left: 20px;">Cif</th>
+		            <th style="padding-left: 20px;">E-mail</th>
+		            <th style="padding-left: 20px;">Editar</th>
+		            <th style="padding-left: 20px;">Eliminar</th>
+		        </tr>
+		    </thead>
+		    <tbody>
+		        <tr th:each="proveedor : ${proveedores}">
+		            <td><h3 th:text="${proveedor.nombre}"></h3></td>
+		            <td style="padding-left: 20px;"><p th:text="${proveedor.direccion}"></p></td>
+		            <td style="padding-left: 20px;"><p th:text="${proveedor.localidad}"></p></td>
+		            <td style="padding-left: 20px;"><p th:text="${proveedor.provincia}"></p></td>
+		            <td style="padding-left: 20px;"><p th:text="${proveedor.telefono}"></p></td>
+		            <td style="padding-left: 20px;"><p th:text="${proveedor.cif}"></p></td>
+		            <td style="padding-left: 20px;"><p th:text="${proveedor.email}"></p></td>
+		            <td style="padding-left: 20px;"><a th:href="@{/proveedor/editar/}+${proveedor.id}"><button type="button" class="btn btn-primary">Editar</button></a></td>
+		            <td style="padding-left: 20px;"><a th:href="@{/proveedor/eliminar/}+${proveedor.id}"><button type="button"  class="btn btn-primary" style="background-color: #C01A06; border-color: #C01A06;" onclick="if (!confirm('Realmente desea eliminar?')) return false">Eliminar</button></a></td>
+		        </tr>
+		    </tbody>
+	
+		</table>
+	</div> 
 
 		                    	
 		                   

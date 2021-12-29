@@ -28,20 +28,43 @@
   </head>
 <body>
 	<header th:replace="/cabezaypie/cabecera::cabecera"></header>
-	<div class="container" th:each="usuarios : ${usuarioss}">
-		 <div class="product-slider owl-carousel owl-theme">                  
-		       <h3 th:text="${usuarios.nombre}"></h3>
-		       <p  th:text="${usuarios.email}"> </p>
-		       <p  th:text="${usuarios.clave}"> </p>
-		       <p  th:text="${usuarios.direccion}"> </p>
-		       <p  th:text="${usuarios.localidad}"> </p>
-		       <p  th:text="${usuarios.provincia}"> </p>
-		       <p  th:text="${usuarios.telefono}"> </p>
-		       <a th:href="@{/usuarios/editar/}+${usuarios.id}"><button type="button">Editar</button></a>
-		       <a th:href="@{/usuarios/eliminar/}+${usuarios.id}"><button type="button" onclick="if (!confirm('Realmente desea eliminar?')) return false">Eliminar</button></a>
-		 </div>
+	
+	<div style="text-align: center;">
+		<a th:href="@{/usuarios/registro2}"><button type="button" class="btn btn-primary">Crear Usuario</button></a>
 	</div>
-	<a th:href="@{/usuarios/registro2}"><button type="button">Crear Usuario</button></a>
+	
+	<div style="margin:50px auto; width:1000px;">
+		<table class="table table-responsive table-striped" style="text-align:left; width:100%">
+	
+			<thead>
+		        <tr>
+		            <th>Nombre</th>
+		            <th style="padding-left: 20px;">Email</th>
+		            <th style="padding-left: 20px;">Contraseña</th>
+		            <th style="padding-left: 20px;">Dirección</th>
+		            <th style="padding-left: 20px;">Localidad</th>
+		            <th style="padding-left: 20px;">Provincia</th>
+		            <th style="padding-left: 20px;">Telefono</th>
+		            <th style="padding-left: 20px;">Editar</th>
+		            <th style="padding-left: 20px;">Eliminar</th>
+		        </tr>
+		    </thead>
+		    <tbody>
+		        <tr th:each="usuarios : ${usuarioss}">
+		            <td><h3 th:text="${usuarios.nombre}"></h3></td>
+		            <td style="padding-left: 20px;"><p  th:text="${usuarios.email}"> </p></td>
+		            <td style="padding-left: 20px;"><p  th:text="${usuarios.clave}"> </p></td>
+		            <td style="padding-left: 20px;"><p  th:text="${usuarios.direccion}"> </p></td>
+		            <td style="padding-left: 20px;"><p  th:text="${usuarios.localidad}"> </p></td>
+		            <td style="padding-left: 20px;"><p  th:text="${usuarios.provincia}"> </p></td>
+		            <td style="padding-left: 20px;"><p  th:text="${usuarios.telefono}"> </p></td>
+		            <td style="padding-left: 20px;"><a th:href="@{/usuarios/editar/}+${usuarios.id}"><button type="button" class="btn btn-primary">Editar</button></a></td>
+		            <td style="padding-left: 20px;"><a th:href="@{/usuarios/eliminar/}+${usuarios.id}"><button type="button"  class="btn btn-primary" style="background-color: #C01A06; border-color: #C01A06;" onclick="if (!confirm('Realmente desea eliminar?')) return false">Eliminar</button></a></td>
+		        </tr>
+		    </tbody>
+	
+		</table>
+	</div>    
 	
 	<footer th:replace="/cabezaypie/pie::pie"></footer>
         <!-- *** COPYRIGHT END ***-->

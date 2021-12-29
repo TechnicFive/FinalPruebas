@@ -28,16 +28,37 @@
   </head>
 <body>
 	<header th:replace="/cabezaypie/cabecera::cabecera"></header>
-	<div class="container" th:each="config : ${configuracion}">
-		 <div class="product-slider owl-carousel owl-theme">                  
-		       <h3 th:text="${config.clave}"></h3>
-		       <p th:text="${config.valor}"></p>
-		       <p th:text="${config.tipo}"></p>
-		       <a th:href="@{/configuracion/editar/}+${config.id}"><button type="button">Editar</button></a>
-		       <a th:href="@{/configuracion/eliminar/}+${config.id}"><button type="button">Eliminar</button></a>
-		 </div>
+	
+	<div style="text-align: center;">
+		<a th:href="@{/configuracion/crear}"><button type="button" class="btn btn-primary">Crear Configuración</button></a>
 	</div>
-	<a th:href="@{/configuracion/crear}"><button type="button">Crear Configuración</button></a>
+	
+	<div style="margin:50px auto; width:600px;">
+		<table class="table table-responsive table-striped" style="text-align:left; width:100%">
+	
+			<thead>
+		        <tr>
+		            <th>Clave</th>
+		            <th style="padding-left: 20px;">Valor</th>
+		            <th style="padding-left: 20px;">Tipo</th>
+		            <th style="padding-left: 20px;">Editar</th>
+		            <th style="padding-left: 20px;">Eliminar</th>
+		        </tr>
+		    </thead>
+		    <tbody>
+		        <tr th:each="config : ${configuracion}">
+		            <td><h3 th:text="${config.clave}"></h3></td>
+		            <td style="padding-left: 20px;"><p th:text="${config.valor}"></p></td>
+		            <td style="padding-left: 20px;"><p th:text="${config.tipo}"></p></td>
+		            <td style="padding-left: 20px;"><a th:href="@{/configuracion/editar/}+${config.id}"><button type="button" class="btn btn-primary">Editar</button></a></td>
+		            <td style="padding-left: 20px;"><a th:href="@{/configuracion/eliminar/}+${config.id}"><button type="button"  class="btn btn-primary" style="background-color: #C01A06; border-color: #C01A06;" onclick="if (!confirm('Realmente desea eliminar?')) return false">Eliminar</button></a></td>
+		        </tr>
+		    </tbody>
+	
+		</table>
+	</div>
+	
+
 
 		                    	
 		                   

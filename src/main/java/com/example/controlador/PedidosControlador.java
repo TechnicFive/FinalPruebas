@@ -53,6 +53,37 @@ public class PedidosControlador {
 		return "muestrasyeliminaciones/editarPedidosAdmin";
 	}
 	
+	@GetMapping("/enviados")
+	public String mostrarPedidosEnviados(Model model, HttpSession sesion) {
+		ArrayList <Pedidos> p = (ArrayList <Pedidos>) usu.darPedidos();
+		ArrayList <Pedidos> usado = new ArrayList<Pedidos>();
+		if(p!=null) {
+			for (Pedidos pedidos : p) {
+				if(pedidos.getEstado().equalsIgnoreCase("Enviado")) {
+					usado.add(pedidos);
+				}
+			}
+		}
+		model.addAttribute("Pedidos", usado);
+		return "muestrasyeliminaciones/editarPedidosEnviado";
+	}
+	
+	
+	@GetMapping("/cancelados")
+	public String mostrarPedidosCancelados(Model model, HttpSession sesion) {
+		ArrayList <Pedidos> p = (ArrayList <Pedidos>) usu.darPedidos();
+		ArrayList <Pedidos> usado = new ArrayList<Pedidos>();
+		if(p!=null) {
+			for (Pedidos pedidos : p) {
+				if(pedidos.getEstado().equalsIgnoreCase("Cancelado")) {
+					usado.add(pedidos);
+				}
+			}
+		}
+		model.addAttribute("Pedidos", usado);
+		return "muestrasyeliminaciones/editarPedidosCancelados";
+	}
+	
 	@GetMapping("/enviar/{n}")
 	public String enviarPedido(@PathVariable("n") int id ,Model model, HttpSession sesion) {
 		Pedidos us = usu.findById(id);
@@ -64,11 +95,11 @@ public class PedidosControlador {
 		conf.setValor(valor);
 		config.save(conf);
 		usu.save(us);
-		crearPDF(us, conf);
+		//crearPDF(us, conf);
 		return "redirect:/pedidos/muestrapedidos";
 	}
 	
-	private void crearPDF(Pedidos us, Configuracion conf) {
+	/*private void crearPDF(Pedidos us, Configuracion conf) {
 		Usuarios usus = Usuario.findById(us.getIdUsuario());
 		ArrayList<DetallesPedido> deta = (ArrayList<DetallesPedido>) usuDeta.DarProducto();
 		ArrayList<DetallesPedido> nuevo= new ArrayList<DetallesPedido>();
@@ -79,7 +110,7 @@ public class PedidosControlador {
 				}
 			}
 		}
-	}
+	}*/
 
 	@GetMapping("/cancelar/{n}")
 	public String cancelarPedido(@PathVariable("n") int id ,Model model, HttpSession sesion) {
@@ -166,7 +197,9 @@ public class PedidosControlador {
 		DetallesPedido detped= usuDeta.findById(id);
 		Pedidos ped = usu.findById(detped.getIdPedido());
 		String elimina="Pendiente";
-		
+		double nuevoprecio= ped.getTotal()-detped.getTotal();
+		nuevoprecio=Math.round(nuevoprecio * 100) / 100d;
+		ped.setTotal(nuevoprecio);
 		usuDeta.eliminar(detped);
 		ped.setEstado(elimina);
 		usu.save(ped);
